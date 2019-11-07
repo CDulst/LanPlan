@@ -2,7 +2,10 @@
 Lan-Party planner
 "LanPlan"
 
+Met deze app kan je lanparties inplannen. Alle lanparties worden weergegeven op een dashboard en wanneer je een bepaalde lanparty selecteert worden de details weergegeven. Je kan een lanparty toevoegen en wijzigen maken.
+
 	De gebruiker kan een moment kiezen voor een lan party, dag en uren
+  De gebruiker kan een naam meegeven aan de lan party.
  De gebruiker kan de locatie van de lanparty instellen
 	De gebruiker kan kiezen welke games de groep zal spelen
 	De gebruiker kan de leden die deelnemen toevoegen.
