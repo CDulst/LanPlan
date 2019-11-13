@@ -1,19 +1,21 @@
 
 
 <?php
-echo "hello world <br><br>";
-foreach ($lans as $lan){
-echo "".$lan["Name"]."<br>";
-echo "".$lan["Date"]."<br>";
-foreach ($locations as $location){
-  if ($location["LocationID"] == $lan["LocationID"]){
-    echo "".$location["Street"]."<br>";
-    echo "".$location["Streetnumber"]."<br>";
-    echo "".$location["City"]."<br>";
-    echo "".$location["Postal number"]."<br><br>";
-  }
-}
-}
+$arraymonth = array(
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December"
+  );
+
 
 
 
@@ -51,33 +53,46 @@ if (!empty($insertTodoResult)) {
 
         <div class="dashboard__items__wrapper">
             <ul class="dashboard__items">
-                <li class="dashboard__item">
-                    <p class="dashboard__date">11 march 2020</p>
-                    <a class="dashboard__item__link" href="">
-                    <div class="dashboardNameLocation__wrapper">
-                    <p class="dashboard__name">Name</p>
-                    <p class="dashboard__location">location:</p>
-                    <p class="dashboard__location">sint-andriessteenweg 169</p>
-                    </div>
-                    <div class="dashboard__countdown">
-                    <div class="dashboard__dashboard days">
-                        <p class="number">03</p>
-                        <p class="date">Days</p>
-                    </div>
-                    <div class="dashboard__dashboard hours">
-                        <p class="number">24</p>
-                        <p class="date">Hours</p>
-                    </div>
-                    <div class="dashboard__dashboard minutes">
-                        <p class="number">30</p>
-                        <p class="date">Minutes</p>
-                    </div>
-                    <div class="dashboard__dashboard seconds">
-                        <p class="number">45</p>
-                        <p class="date">Seconds</p>
-                    </div>
-                </div>
-                </a></li>
+              <?php
+              foreach ($lans as $lan){
+              $j = substr($lan["Date"],0,4);
+              $m = substr($lan["Date"],5,2);
+              $d = substr($lan["Date"],8,2);
+              $date = $arraymonth[$m - 1] . " ". $d . "," . $j;
+              foreach ($locations as $location){
+                if ($location["LocationID"] == $lan["LocationID"])
+                {
+              echo '<li class="dashboard__item">
+              <p class="dashboard__date">'. $date. '</p>
+              <a class="dashboard__item__link" href="">
+              <div class="dashboardNameLocation__wrapper">
+              <p class="dashboard__name">'. $lan["Name"].'</p>
+              <p class="dashboard__location">'. $location["Street"]. ' ' . $location["Streetnumber"].'</p>
+              </div>
+              <div class="dashboard__countdown">
+              <div class="dashboard__dashboard days">
+                  <p class="number">03</p>
+                  <p class="date">Days</p>
+              </div>
+              <div class="dashboard__dashboard hours">
+                  <p class="number">24</p>
+                  <p class="date">Hours</p>
+              </div>
+              <div class="dashboard__dashboard minutes">
+                  <p class="number">30</p>
+                  <p class="date">Minutes</p>
+              </div>
+              <div class="dashboard__dashboard seconds">
+                  <p class="number">45</p>
+                  <p class="date">Seconds</p>
+              </div>
+          </div>
+          </a></li>';
+        }
+      }
+      }
+              ?>
+
             </ul>
         </div>
     </section>
