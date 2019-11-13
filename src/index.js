@@ -8,6 +8,7 @@ require('./style.css');
     if ($todosList) {
       loadTodos();
       //test
+      console.log('hey');
     }
     if ($insertTodoForm) {
       $insertTodoForm.addEventListener(`submit`, handleSubmitInsertTodoForm);
