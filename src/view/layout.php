@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://use.typekit.net/ape8ojm.css">
   </head>
+  <div class="body__wrapper">
   <body class="body">
+
     <main>
       <?php
         if(!empty($_SESSION['error'])) {
@@ -34,5 +36,7 @@
     </footer>
     </main>
     <?php echo $js; ?>
+    </div>
   </body>
+  <div class="body__wrapper">
 </html>

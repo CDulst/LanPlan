@@ -95,18 +95,18 @@ if (!empty($insertTodoResult)) {
 
             </ul>
         </div>
-    </section>
-    <section class="emptystate">
-        <img class="emptyStateImage" src="../assets/images/imageEmpty.svg" alt="emptystate">
-    </section>
-
-
-    <div class="add__lanparty">
+        <div class="add__lanparty">
         <a href="">
         <img src="../assets/images/button.svg" alt="button">
         </a>
     </div>
-    </a>
+    </section>
+    <section class="emptystate">
+        <img class="emptyStateImage" src="../assets/images/imageEmpty.svg" alt="emptystate">
+    </section>
+      <section class="section__right">
+        <img class="section__right__image" src="../assets/images/illustration__right.svg" alt="">
+      </section>
 <script type="text/javascript">
 {
   const init = () => {
