@@ -7,6 +7,7 @@ require('./style.css');
   const init = () => {
     if ($todosList) {
       loadTodos();
+      //test
     }
     if ($insertTodoForm) {
       $insertTodoForm.addEventListener(`submit`, handleSubmitInsertTodoForm);
