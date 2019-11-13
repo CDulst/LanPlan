@@ -1,0 +1,44 @@
+.header__image__container1 {
+  position: absolute;
+  top: -5%;
+  left: -2rem;
+  z-index: -1;
+}
+
+.header__image__container2 {
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  overflow: hidden;
+  width: 100%;
+}
+
+.header__image2 {
+  position: relative;
+  right: -6rem;
+  top: 0;
+}
+
+.header__image__container3 {
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  overflow: hidden;
+  width: 100%;
+  top: -4rem;
+}
+
+.header__image3 {
+  position: relative;
+  right: -7rem;
+  top: -0;
+  transform: rotate(45deg);
+}
+
+.header__title {
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-left: 1.5rem;
+  margin-top: 3.5rem;
+  color: '#F1C3FB';
+}

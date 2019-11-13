@@ -1,4 +1,35 @@
-body {
-  background-color: lightsalmon;
-  font-family: sans-serif;
+@import url('./css/header.css');
+@import url('./css/menu__item.css');
+@import url('./css/footer.css');
+
+html {
+  height: 100%;
 }
+
+.body {
+  background-image: linear-gradient(45deg, #1C118E, #2B33E0);
+  background-repeat: no-repeat;
+  font-family: forma-djr-display, sans-serif;
+  font-style: normal;
+  font-weight: 200;
+}
+
+
+.dashboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 1.8vw;
+
+}
+
+.dashboard__title {
+  margin-top: 10rem;
+  font-size: 6vw;
+  color: white;
+  font-weight: 700;
+  letter-spacing: 0.3rem;
+  margin-bottom: 3rem;
+}
+

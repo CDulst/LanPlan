@@ -15,23 +15,8 @@ $arraymonth = array(
   "November",
   "December"
   );
-echo "hello world <br><br>";
-foreach ($lans as $lan){
-echo "".$lan["Name"]."<br>";
-$j = substr($lan["Date"],0,4);
-$m = substr($lan["Date"],5,2);
-$d = substr($lan["Date"],8,2);
-$date = $arraymonth[$m - 1] . " ". $d . "," . $j;
-echo "".$date."<br>";
-foreach ($locations as $location){
-  if ($location["LocationID"] == $lan["LocationID"]){
-    echo "".$location["Street"]."<br>";
-    echo "".$location["Streetnumber"]."<br>";
-    echo "".$location["City"]."<br>";
-    echo "".$location["Postal number"]."<br><br>";
-  }
-}
-}
+
+
 
 
 /*
@@ -63,6 +48,54 @@ if (!empty($insertTodoResult)) {
 }
 */
 ?>
+<section class="dashboard">
+        <h2 class="dashboard__title">Your Lan partys</h2>
+
+        <div class="dashboard__items__wrapper">
+            <ul class="dashboard__items">
+              <?php
+              foreach ($lans as $lan){
+              $j = substr($lan["Date"],0,4);
+              $m = substr($lan["Date"],5,2);
+              $d = substr($lan["Date"],8,2);
+              $date = $arraymonth[$m - 1] . " ". $d . "," . $j;
+              foreach ($locations as $location){
+                if ($location["LocationID"] == $lan["LocationID"])
+                {
+              echo '<li class="dashboard__item">
+              <p class="dashboard__date">'. $date. '</p>
+              <a class="dashboard__item__link" href="">
+              <div class="dashboardNameLocation__wrapper">
+              <p class="dashboard__name">'. $lan["Name"].'</p>
+              <p class="dashboard__location">'. $location["Street"]. ' ' . $location["Streetnumber"].'</p>
+              </div>
+              <div class="dashboard__countdown">
+              <div class="dashboard__dashboard days">
+                  <p class="number">03</p>
+                  <p class="date">Days</p>
+              </div>
+              <div class="dashboard__dashboard hours">
+                  <p class="number">24</p>
+                  <p class="date">Hours</p>
+              </div>
+              <div class="dashboard__dashboard minutes">
+                  <p class="number">30</p>
+                  <p class="date">Minutes</p>
+              </div>
+              <div class="dashboard__dashboard seconds">
+                  <p class="number">45</p>
+                  <p class="date">Seconds</p>
+              </div>
+          </div>
+          </a></li>';
+        }
+      }
+      }
+              ?>
+
+            </ul>
+        </div>
+    </section>
 <script type="text/javascript">
 {
   const init = () => {

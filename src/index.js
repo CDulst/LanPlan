@@ -1,4 +1,4 @@
-require('./style.css');
+
 {
 
   const $todosList = document.getElementById(`todosList`),
@@ -9,6 +9,7 @@ require('./style.css');
     if ($todosList) {
       loadTodos();
       //test
+      console.log('hey');
     }
     if ($insertTodoForm) {
       $insertTodoForm.addEventListener(`submit`, handleSubmitInsertTodoForm);
