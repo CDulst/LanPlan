@@ -1,0 +1,16 @@
+.add__lanparty{
+  color: white;
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+  font-size: 4rem;
+  text-decoration: none;
+
+}
+.add__lanparty__link{
+  text-decoration: none;
+}
+.gradientPLus{
+  background-color: white;
+
+}

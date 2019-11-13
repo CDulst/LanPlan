@@ -1,0 +1,11 @@
+.dashboard__items__wrapper{
+  display: block;
+}
+.emptystate{
+  display: none;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.emptyStateImage{
+  width: 70%;;
+}

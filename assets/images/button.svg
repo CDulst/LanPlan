@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="69" height="70" viewBox="0 0 69 70">
+  <defs>
+    <linearGradient id="linear-gradient" x1="-0.113" y1="0.5" x2="1.053" y2="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#af3a5e"/>
+      <stop offset="1" stop-color="#f1c3fb"/>
+    </linearGradient>
+    <filter id="Ellipse_7" x="0" y="1" width="69" height="69" filterUnits="userSpaceOnUse">
+      <feOffset dy="7" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.416"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_119" data-name="Group 119" transform="translate(-153 -539)">
+    <g transform="matrix(1, 0, 0, 1, 153, 539)" filter="url(#Ellipse_7)">
+      <circle id="Ellipse_7-2" data-name="Ellipse 7" cx="25.5" cy="25.5" r="25.5" transform="translate(9 3)" fill="url(#linear-gradient)"/>
+    </g>
+    <text id="_" data-name="+" transform="translate(175 585)" fill="#fff" font-size="51" font-family="FormaDJRDisplay-Light, Forma DJR Display" font-weight="300"><tspan x="0" y="0">+</tspan></text>
+  </g>
+</svg>
