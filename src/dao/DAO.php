@@ -5,7 +5,7 @@ class DAO {
   // Properties
   private static $dbHost = "localhost";
 	private static $dbName = "lanplan";
-	private static $dbUser = "Casey";
+	private static $dbUser = "admin";
 	private static $dbPass = "";
 	private static $sharedPDO;
 	protected $pdo;

@@ -1,7 +1,21 @@
-<ol id="todosList">
-</ol>
+
 
 <?php
+echo "hello world <br><br>";
+foreach ($lans as $lan){
+echo "".$lan["Name"]."<br>";
+echo "".$lan["Date"]."<br>";
+foreach ($locations as $location){
+  if ($location["LocationID"] == $lan["LocationID"]){
+    echo "".$location["Street"]."<br>";
+    echo "".$location["Streetnumber"]."<br>";
+    echo "".$location["City"]."<br>";
+    echo "".$location["Postal number"]."<br><br>";
+  }
+}
+}
+
+
 /*
 if (!empty($insertTodoResult)) {
 ?>

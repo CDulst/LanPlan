@@ -1,9 +1,11 @@
 <?php
 
 require_once __DIR__ . '/Controller.php';
-require_once __DIR__ . '/../dao/TodoDAO.php';
+require_once __DIR__ . '/../dao/LanDAO.php';
+require_once __DIR__ . '/../dao/LocationDAO.php';
 
-class TodosController extends Controller {
+
+class LocationController extends Controller {
 
   /*
   private $todoDAO;
