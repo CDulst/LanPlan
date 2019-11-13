@@ -1,10 +1,28 @@
 
 
 <?php
+$arraymonth = array(
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December"
+  );
 echo "hello world <br><br>";
 foreach ($lans as $lan){
 echo "".$lan["Name"]."<br>";
-echo "".$lan["Date"]."<br>";
+$j = substr($lan["Date"],0,4);
+$m = substr($lan["Date"],5,2);
+$d = substr($lan["Date"],8,2);
+$date = $arraymonth[$m - 1] . " ". $d . "," . $j;
+echo "".$date."<br>";
 foreach ($locations as $location){
   if ($location["LocationID"] == $lan["LocationID"]){
     echo "".$location["Street"]."<br>";

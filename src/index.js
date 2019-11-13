@@ -1,5 +1,6 @@
 require('./style.css');
 {
+
   const $todosList = document.getElementById(`todosList`),
     $insertTodoForm = document.getElementById(`insertTodoForm`),
     $inputText = document.getElementById(`inputText`);
@@ -59,4 +60,5 @@ require('./style.css');
   };
 
   init();
+
 }
