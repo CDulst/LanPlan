@@ -9,13 +9,11 @@ html {
 }
 
 .body {
-  background-image: linear-gradient(45deg, #1C118E, #2B33E0);
-  background-repeat: no-repeat;
   font-family: forma-djr-display, sans-serif;
   font-style: normal;
   font-weight: 200;
+  background-image: linear-gradient(45deg, #1C118E, #2B33E0);
 }
-
 
 .dashboard {
   display: flex;
@@ -23,7 +21,6 @@ html {
   align-items: center;
   flex-direction: column;
   font-size: 1.8vw;
-
 }
 
 .dashboard__title {
@@ -35,15 +32,126 @@ html {
   margin-bottom: 3rem;
 }
 
-@media screen and (min-width: 768px) {
+.section__right {
+  display: none;
+}
+@media screen and (min-width:768px){
+
   .dashboard__location{
-      margin-top: 1rem;
+    margin-top: 1rem;
   }
-  .hidden{
-      display: block;
+
+   .hidden{
+    display: block;
   }
   .dashboard__date{
-      font-size: 4vw;
-      margin-bottom: 1rem;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
   }
+
+}
+@media screen and (min-width:1024px){
+
+  .dashboard__title {
+    font-size: 2.5rem;
+  }
+  .dashboard__item__link {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .dashboardNameLocation__wrapper {
+    display: flex;
+    flex-direction: column;
+
+  }
+  .dashboard__item__link{
+    background-image: linear-gradient(-90deg,#EBB6EC, #C56893);
+    padding: 1rem 3rem 1rem 3rem;
+    border-radius: 1rem 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    text-decoration: none;
+    color: white;
+    filter: drop-shadow(0px 10px 15px black);
+    margin-bottom:3rem;
+  }
+  .dashboard__items__wrapper{
+    width: 90%;
+  }
+  .dashboard__name{
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 0rem;
+  }
+
+  .dashboard__countdown {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: #2320B3;
+  }
+
+  .number {
+    font-size: 1.2rem;
+  }
+
+  .date {
+    font-size: 0.8rem;
+  }
+
+  .dashboard__date {
+
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+
+  }
+
+  .dashboard__location {
+    font-size: 1.4rem;
+  }
+
+  .dashboard {
+    width: 50%;
+    float: left;
+  }
+
+  .header__image__container1 {
+    width: 100%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+
+  }
+
+  .header__title {
+    margin-left: 0;
+    margin-top: 2.5rem;
+    display: flex;
+    justify-content: center;
+
+  }
+
+  .section__right{
+    float: right;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40rem;
+  }
+
+  .section__right__image{
+    width: 60%;
+  }
+
+  .body {
+    font-family: forma-djr-display, sans-serif;
+    font-style: normal;
+    font-weight: 200;
+    background-image: linear-gradient(to right, #1C118E 0%, #1C118E 50%, #E6BFDE 50%, #E6BFDE 100%);
+
+  }
+
 }

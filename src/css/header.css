@@ -1,6 +1,6 @@
 .header__image__container1 {
   position: absolute;
-  top: -5%;
+  top: -2.5rem;
   left: -2rem;
   z-index: -1;
 }
@@ -40,5 +40,5 @@
   font-size: 1.3rem;
   margin-left: 1.5rem;
   margin-top: 3.5rem;
-  color: '#F1C3FB';
+  color: #F1C3FB;
 }
