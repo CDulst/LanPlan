@@ -19,6 +19,12 @@ $arraymonth = array(
 
 
 
+
+
+
+
+
+
 /*
 if (!empty($insertTodoResult)) {
 ?>
@@ -55,6 +61,20 @@ if (!empty($insertTodoResult)) {
             <ul class="dashboard__items">
               <?php
               foreach ($lans as $lan){
+                $start = new DateTime();
+                $start->setTimezone(new DateTimeZone('Europe/Brussels'));    // Another way
+
+                $end = new \DateTime($lan["Date"]);
+                $interval = $end->diff($start);
+                $months = $interval->m;
+                $days = $interval->d;
+                $hours = $interval->h;
+                $minutes = $interval->i;
+                $seconds = $interval->s;
+                if ($interval->y > 0){
+                  $months = $months + ($interval->y*12);
+                }
+
               $j = substr($lan["Date"],0,4);
               $m = substr($lan["Date"],5,2);
               $d = substr($lan["Date"],8,2);
@@ -70,20 +90,24 @@ if (!empty($insertTodoResult)) {
               <p class="dashboard__location">'. $location["Street"]. ' ' . $location["Streetnumber"].'</p>
               </div>
               <div class="dashboard__countdown">
+              <div class="dashboard__dashboard months">
+              <p class="number">'. $months .'</p>
+              <p class="date">Months</p>
+          </div>
               <div class="dashboard__dashboard days">
-                  <p class="number">03</p>
+                  <p class="number">'.  $days .'</p>
                   <p class="date">Days</p>
               </div>
               <div class="dashboard__dashboard hours">
-                  <p class="number">24</p>
+                  <p class="number">'. $hours .'</p>
                   <p class="date">Hours</p>
               </div>
               <div class="dashboard__dashboard minutes">
-                  <p class="number">30</p>
+                  <p class="number">'. $minutes .'</p>
                   <p class="date">Minutes</p>
               </div>
               <div class="dashboard__dashboard seconds">
-                  <p class="number">45</p>
+                  <p class="number">'. $seconds .'</p>
                   <p class="date">Seconds</p>
               </div>
           </div>
