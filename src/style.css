@@ -34,7 +34,8 @@ html {
   letter-spacing: 0.3rem;
   margin-bottom: 3rem;
 }
-@media screen and (min-width:768px){
+
+@media screen and (min-width: 768px) {
   .dashboard__location{
       margin-top: 1rem;
   }
@@ -46,4 +47,3 @@ html {
       margin-bottom: 1rem;
   }
 }
-
