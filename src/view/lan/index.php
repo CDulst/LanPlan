@@ -62,10 +62,9 @@ if (!empty($insertTodoResult)) {
               <?php
               foreach ($lans as $lan){
                 $start = new DateTime();
-                $start->setTimezone(new DateTimeZone('Europe/Brussels'));    // Another way
-
+                $start->setTimezone(new DateTimeZone('Europe/Brussels'));
                 $end = new \DateTime($lan["Date"]);
-                $interval = $end->diff($start);
+                $interval = $start->diff($end);
                 $months = $interval->m;
                 $days = $interval->d;
                 $hours = $interval->h;
@@ -91,23 +90,23 @@ if (!empty($insertTodoResult)) {
               </div>
               <div class="dashboard__countdown">
               <div class="dashboard__dashboard months">
-              <p class="number">'. $months .'</p>
+              <p class="number month">'. $months .'</p>
               <p class="date">Months</p>
           </div>
               <div class="dashboard__dashboard days">
-                  <p class="number">'.  $days .'</p>
+                  <p class="number day">'.  $days .'</p>
                   <p class="date">Days</p>
               </div>
               <div class="dashboard__dashboard hours">
-                  <p class="number">'. $hours .'</p>
+                  <p class="number hour">'. $hours .'</p>
                   <p class="date">Hours</p>
               </div>
               <div class="dashboard__dashboard minutes">
-                  <p class="number">'. $minutes .'</p>
+                  <p class="number minute">'. $minutes .'</p>
                   <p class="date">Minutes</p>
               </div>
               <div class="dashboard__dashboard seconds">
-                  <p class="number">'. $seconds .'</p>
+                  <p class="number second">'. $seconds .'</p>
                   <p class="date">Seconds</p>
               </div>
           </div>
