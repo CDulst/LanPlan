@@ -7,7 +7,12 @@ $routes = array(
   'home' => array(
     'controller' => 'Lan',
     'action' => 'index'
+  ),
+  'name' => array(
+    'controller' => 'Lan',
+    'action' => 'name'
   )
+
 );
 
 if(empty($_GET['page'])) {

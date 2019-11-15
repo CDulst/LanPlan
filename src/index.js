@@ -12,6 +12,7 @@
     $inputText = document.getElementById(`inputText`);
 
   const init = () => {
+    console.log('test');
     /*
     if ($todosList) {
       loadTodos();

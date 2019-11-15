@@ -1,0 +1,11 @@
+.info{
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.info::after{
+  content: url('../assets/images/aprove.svg');
+  display: inline;
+  margin-left: 2rem;
+}

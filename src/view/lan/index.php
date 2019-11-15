@@ -55,7 +55,7 @@ if (!empty($insertTodoResult)) {
 */
 ?>
 <section class="dashboard">
-        <h2 class="dashboard__title">Your Lan partys</h2>
+        <h2 class="dashboard__title">Your Lan parties</h2>
 
         <div class="dashboard__items__wrapper">
             <ul class="dashboard__items">

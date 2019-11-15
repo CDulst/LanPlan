@@ -39,6 +39,10 @@ class LanController extends Controller {
     */
   }
 
+  public function name() {
+
+  }
+
 
 
 }
