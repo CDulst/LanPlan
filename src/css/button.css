@@ -14,5 +14,12 @@
 
 .gradientPLus {
   background-color: white;
+}
 
+.add__lanparty__image {
+  transition: all 200ms ease-in-out;
+}
+
+.add__lanparty__image:hover {
+  filter: brightness(1.2);
 }
