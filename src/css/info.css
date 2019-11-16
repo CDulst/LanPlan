@@ -1,11 +1,12 @@
-.info{
+.info {
   font-size: 1.8rem;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.info::after{
-  content: url('../assets/images/aprove.svg');
+
+.info::after {
+  content: url(../assets/images/aprove.svg);
   display: inline;
   margin-left: 2rem;
 }

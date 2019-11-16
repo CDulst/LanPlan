@@ -58,7 +58,12 @@ html {
   height: 3rem;
   text-align: center;
   background-image: linear-gradient(-90deg,#EBB6EC, #C56893);
-  color: #221FB1 ;
+  color: #221FB1;
+  font-size: 2rem;
+}
+
+.input:focus {
+  filter: brightness(1.3);
 }
 
 ::-webkit-input-placeholder {

@@ -1,13 +1,12 @@
-.footer{
+.footer {
   height: 3rem;
   position: fixed;
-  bottom: 0rem;
-  bottom: 0rem;
+  bottom: 0;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: 700;
-  background-image: linear-gradient(#2313B7, #7C58E6);
-  color: #F1C3FB;
+  background-image: linear-gradient(#2313b7, #7c58e6);
+  color: #f1c3fb;
 }
