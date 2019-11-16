@@ -8,9 +8,9 @@ $routes = array(
     'controller' => 'Lan',
     'action' => 'index'
   ),
-  'name' => array(
+  'plan' => array(
     'controller' => 'Lan',
-    'action' => 'name'
+    'action' => 'plan'
   )
 
 );

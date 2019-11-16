@@ -26,7 +26,6 @@ class LanController extends Controller {
 
     $lans= $this->lanDAO->selectAll();
     $locations = $this->locationDAO->selectAll();
-    $location =
     $this->set('lans', $lans);
     $this->set('locations', $locations);
     $this->set('title', 'Overview');
@@ -39,7 +38,7 @@ class LanController extends Controller {
     */
   }
 
-  public function name() {
+  public function plan() {
 
   }
 

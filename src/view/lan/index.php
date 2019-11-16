@@ -119,7 +119,7 @@ if (!empty($insertTodoResult)) {
             </ul>
         </div>
         <div class="add__lanparty">
-        <a href="">
+        <a href="index.php?page=plan">
         <img src="../assets/images/button.svg" alt="button">
         </a>
     </div>
