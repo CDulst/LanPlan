@@ -38,24 +38,24 @@ html {
   display: none;
 }
 
-.label{
+.label {
   display: flex;
   justify-content: center;
   text-align: center;
   align-items: center;
-  margin-top: 6rem;
+  margin-top: 20rem;
   color: white;
   font-weight: 700;
-  font-size: 1.6rem;
+  font-size: 4rem;
   margin-bottom: 2rem;
 }
 
 .input {
-  margin-bottom: 2rem;
-  border-radius: 1rem;
+  margin-bottom: 4rem;
+  border-radius: 3rem;
   border: none;
-  width: 20rem;
-  height: 2rem;
+  width: 30rem;
+  height: 3rem;
   text-align: center;
   background-image: linear-gradient(-90deg,#EBB6EC, #C56893);
   color: #221FB1 ;
@@ -65,7 +65,7 @@ html {
   text-align: center;
   color: #221FB1;
   font-weight: 700;
-  font-size: 1.3rem;
+  font-size: 1.8rem;
   color: #221FB1;
   font-weight: 200;
 }
@@ -83,6 +83,7 @@ html {
     font-size: 1.3rem;
     margin-bottom: 1rem;
   }
+
 
 }
 @media screen and (min-width:1200px){
@@ -187,6 +188,28 @@ html {
     font-weight: 200;
     background-image: linear-gradient(to right, #1C118E 0%, #1C118E 50%, #E6BFDE 50%, #E6BFDE 100%);
 
+  }
+
+  .label {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-top: 10rem;
+    color: white;
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    width: 50%;
+
+  }
+
+  .FormName__wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  .labelForm{
+    margin-bottom: 2rem;
   }
 
 }
