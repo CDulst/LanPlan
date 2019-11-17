@@ -7,7 +7,7 @@
     </div>
     <a class = "section__link" href="">edit</a>
     </section>
-    <img class = "section__seperator" src="../assets/images/Seperation.svg" alt="">
+    <img class = "section__seperator" src="./assets/images/Seperation.svg" alt="">
      <section class = "detail__section">
     <div class = "detail__section--wrapper">
     <h3 class = "section__title"> Date:</h3>
@@ -15,7 +15,7 @@
     </div>
     <a class = "section__link" href="">edit</a>
     </section>
-    <img class = "section__seperator" src="../assets/images/Seperation.svg" alt="">
+    <img class = "section__seperator" src="./assets/images/Seperation.svg" alt="">
      <section class = "detail__section">
     <div class = "detail__section--wrapper">
     <h3 class = "section__title"> Location </h3>
@@ -23,7 +23,7 @@
     </div>
     <a class = "section__link" href="">edit</a>
     </section>
-    <img class = "section__seperator" src="../assets/images/Seperation.svg" alt="">
+    <img class = "section__seperator" src="./assets/images/Seperation.svg" alt="">
     </article>
     <section class = "section__button">
         <a class = "return__button" href="index.php">Return to dashboard</a>
