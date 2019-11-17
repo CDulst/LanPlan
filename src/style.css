@@ -46,8 +46,12 @@ html {
   margin-top: 6rem;
   color: white;
   font-weight: 700;
+<<<<<<< HEAD
   font-size: 1.6rem;
   margin-bottom: 2rem;
+=======
+  font-size: 5vw;
+>>>>>>> 11a446091e28bdc01c55e2b162182d6ccd0ff76d
 }
 
 .input {
@@ -134,8 +138,17 @@ html {
     .section__button{
       width:70%;
 
+<<<<<<< HEAD
     }
   }
+=======
+@media screen and (min-width:768px){
+.FormName__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+>>>>>>> 11a446091e28bdc01c55e2b162182d6ccd0ff76d
 
 
 
@@ -160,7 +173,26 @@ html {
     margin-top:5rem;
   }
 
+<<<<<<< HEAD
 
+=======
+  .input {
+    margin-bottom: 4rem;
+    margin-top: 1rem;
+    border-radius: 3rem;
+    border: none;
+    width: 25rem;
+    height: 3rem;
+    text-align: center;
+    background-image: linear-gradient(-90deg, #Ebb6ec, #C56893);
+    color: #221fb1;
+    font-size: 1rem;
+  }
+
+  .header__image2 {
+    display: block;
+  }
+>>>>>>> 11a446091e28bdc01c55e2b162182d6ccd0ff76d
 }
 @media screen and (min-width:1200px){
 
@@ -277,4 +309,28 @@ html {
     margin-top:2rem;
 
   }
+<<<<<<< HEAD
+=======
+
+
+  .label {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-top: 10rem;
+    color: white;
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    width: 50%;
+    float: left;
+
+  }
+
+  .labelForm {
+    margin-bottom: 2rem;
+  }
+
+>>>>>>> 11a446091e28bdc01c55e2b162182d6ccd0ff76d
 }
