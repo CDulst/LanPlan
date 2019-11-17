@@ -1,5 +1,4 @@
 
-
 {
   const $ul = '';
   const $months = '';
@@ -13,7 +12,12 @@
 
   const init = () => {
     console.log('test');
-    /*
+
+
+    /*$(function() {
+    // Just one method to add a date picker!
+    $("#myDatePicker").datepicker();
+});
     if ($todosList) {
       loadTodos();
       //test
@@ -27,6 +31,9 @@
       timer();
     }, 1000);
   };
+
+
+
 
   const timer = () => {
     console.log('h');

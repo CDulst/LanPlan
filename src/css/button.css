@@ -1,4 +1,4 @@
-.add__lanparty{
+.add__lanparty {
   color: white;
   display: flex;
   justify-content: center;
@@ -7,10 +7,19 @@
   text-decoration: none;
 
 }
-.add__lanparty__link{
+
+.add__lanparty__link {
   text-decoration: none;
 }
-.gradientPLus{
-  background-color: white;
 
+.gradientPLus {
+  background-color: white;
+}
+
+.add__lanparty__image {
+  transition: all 200ms ease-in-out;
+}
+
+.add__lanparty__image:hover {
+  filter: brightness(1.2);
 }
