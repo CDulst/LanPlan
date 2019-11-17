@@ -8,6 +8,12 @@ $routes = array(
     'controller' => 'Lan',
     'action' => 'index'
   ),
+
+  'detail' => array(
+    'controller' => 'Lan',
+    'action' => 'detail'
+  ),
+
   'plan' => array(
     'controller' => 'Lan',
     'action' => 'plan'
