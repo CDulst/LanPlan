@@ -7,6 +7,7 @@
 .dashboard__item__link {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   background-image: linear-gradient(-90deg, #ebb6ec, #c56893);
   padding: 2vw 5vw 2vw 5vw;
   border-radius: 1rem 1rem;
@@ -24,7 +25,7 @@
 
 .dashboard__name {
   font-weight: 700;
-  font-size: 5vw;
+  font-size: 1.3rem;
   margin-bottom: .3rem;
 }
 
@@ -33,7 +34,7 @@
   justify-content: flex-end;
   align-items: center;
   color: #2320b3;
-  flex-direction: row;
+
 }
 
 .dashboard__dashboard {
@@ -51,20 +52,20 @@
 }
 
 .date {
-  font-size: 1.4vw;
+  font-size: 1.5vw;
 }
 
 .dashboard__date {
   display: flex;
   justify-content: center;
-  margin-bottom: 0.5rem;
+  margin-bottom: .5rem;
   color: white;
-  font-size: 1.2rem;
+  font-size: .7rem;
   letter-spacing: .2rem;
 }
 
 .dashboard__location {
-  font-size: 3vw;
+  font-size: 1rem;
 }
 
 .dashboard__item__link:hover {

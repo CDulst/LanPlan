@@ -17,6 +17,7 @@
   position: relative;
   right: -6rem;
   top: 0;
+  display: none;
 }
 
 .header__image__container3 {

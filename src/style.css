@@ -26,12 +26,12 @@ html {
 }
 
 .dashboard__title {
-  margin-top: 10rem;
+  margin-top: 5rem;
   font-size: 6vw;
   color: white;
   font-weight: 700;
   letter-spacing: .3rem;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 }
 
 .section__right {
@@ -43,23 +43,24 @@ html {
   justify-content: center;
   text-align: center;
   align-items: center;
-  margin-top: 20rem;
+  margin-top: 7rem;
   color: white;
   font-weight: 700;
-  font-size: 4rem;
-  margin-bottom: 2rem;
+  font-size: 5vw;
+  margin-bottom: rem;
 }
 
 .input {
   margin-bottom: 4rem;
+  margin-top: 1rem;
   border-radius: 3rem;
   border: none;
-  width: 30rem;
-  height: 3rem;
+  width: 15rem;
+  height: 2rem;
   text-align: center;
-  background-image: linear-gradient(-90deg,#EBB6EC, #C56893);
+  background-image: linear-gradient(-90deg, #Ebb6ec, #C56893);
   color: #221fb1;
-  font-size: 2rem;
+  font-size: 1rem;
 }
 
 .input:focus {
@@ -69,8 +70,14 @@ html {
 ::-webkit-input-placeholder {
   text-align: center;
   color: #221fb1;
-  font-size: 1.8rem;
+  font-size: 1rem;
   font-weight: 200;
+}
+
+.FormName__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 @media screen and (min-width: 768px) {
@@ -86,6 +93,23 @@ html {
   .dashboard__date {
     font-size: 1.3rem;
     margin-bottom: 1rem;
+  }
+
+  .input {
+    margin-bottom: 4rem;
+    margin-top: 1rem;
+    border-radius: 3rem;
+    border: none;
+    width: 25rem;
+    height: 3rem;
+    text-align: center;
+    background-image: linear-gradient(-90deg, #Ebb6ec, #C56893);
+    color: #221fb1;
+    font-size: 1rem;
+  }
+
+  .header__image2 {
+    display: block;
   }
 }
 
@@ -209,11 +233,6 @@ html {
     margin-bottom: 2rem;
     width: 50%;
 
-  }
-
-  .FormName__wrapper {
-    display: flex;
-    flex-direction: column;
   }
 
   .labelForm {
