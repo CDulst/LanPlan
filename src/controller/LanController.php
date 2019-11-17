@@ -42,6 +42,10 @@ class LanController extends Controller {
 
   }
 
+  public function detail(){
+
+  }
+
 
 
 }
