@@ -6,8 +6,6 @@
     <title>LanPlan</title>
     <?php /* NEW */ ?>
     <?php echo $css;?>
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://use.typekit.net/ape8ojm.css">
   </head>
   <div class="body__wrapper">
