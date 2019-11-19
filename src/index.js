@@ -1,4 +1,4 @@
-
+require('./style.css');
 {
   const $ul = '';
   const $months = '';
