@@ -120,15 +120,15 @@ if (!empty($insertTodoResult)) {
         </div>
         <div class="add__lanparty">
         <a href="index.php?page=plan">
-        <img class="add__lanparty__image" src="../src/assets/images/button.svg" alt="button">
+        <img class="add__lanparty__image" src="assets/images/button.svg" alt="button">
         </a>
     </div>
     </section>
     <section class="emptystate">
-        <img class="emptyStateImage" src="../src/assets/images/imageEmpty.svg" alt="emptystate">
+        <img class="emptyStateImage" src="assets/images/imageEmpty.svg" alt="emptystate">
     </section>
       <section class="section__right">
-        <img class="section__right__image" src="../src/assets/images/illustration__right.svg" alt="">
+        <img class="section__right__image" src="assets/images/illustration__right.svg" alt="">
       </section>
 <script type="text/javascript">
 {

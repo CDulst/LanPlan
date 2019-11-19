@@ -11,7 +11,8 @@ module.exports = (env, {mode}) => {
     },
     devServer: {
       overlay: true,
-      hot: true
+      hot: true,
+      disableHostCheck: true
     },
     module: {
       rules: [

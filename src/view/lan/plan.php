@@ -11,7 +11,7 @@
     </section>
 
     <section class="section__right">
-        <img class="section__right__image" src="../src/assets/images/illustration__right.svg" alt="">
+        <img class="section__right__image" src="assets/images/illustration__right.svg" alt="">
     </section>
 
 
