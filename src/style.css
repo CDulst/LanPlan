@@ -53,6 +53,7 @@ html {
 }
 
 .input {
+  margin-top: 1rem;
   margin-bottom: 2rem;
   border-radius: 1rem;
   border: none;
@@ -196,6 +197,14 @@ input::placeholder {
 }
 
 @media screen and (min-width: 1200px) {
+
+  .header__image__container2 {
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    overflow: hidden;
+    width: 100%;
+  }
 
   .dashboard__title {
     font-size: 2.5rem;

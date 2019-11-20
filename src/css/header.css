@@ -7,10 +7,11 @@
 
 .header__image__container2 {
   position: absolute;
-  display: flex;
+  display: none;
   justify-content: flex-end;
   overflow: hidden;
   width: 100%;
+
 }
 
 .header__image2 {
