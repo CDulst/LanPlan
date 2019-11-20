@@ -14,28 +14,27 @@
     <?php
          }
     if ($_GET["flow"] == "date"){
-
+      $_SESSION["name"] = $_POST["name"];
   ?>
 
     <section class="section__right">
         <img class="section__right__image" src="assets/images/illustration__right.svg" alt="">
     </section>
 
-
     <section class="label">
         <form class="form" action="index.php?page=plan&flow=location" method = "POST">
             <div class="FormName__wrapper">
             <label class="labelForm" for="name">Choose a Date for the party</label>
-            <input class=" input input__name" type="date">
+            <input class=" input input__name" name = "date" type="date">
             </div>
             <p class="info">The perfect date for a perfect party</p>
-            <input class="input__button" name = "date" type="submit" value="Next">
+            <input class="input__button" type="submit" value="Next">
         </form>
     </section>
     <?php
     }
     if ($_GET["flow"] == "location"){
-
+      $_SESSION["date"] = $_POST["date"];
     ?>
 
 <section class="section__right">
@@ -44,7 +43,7 @@
 
 
     <section class="label">
-        <form class="form" action="index.php" method = "POST">
+        <form class="form" action="index.php?page=plan&flow=overview" method = "POST">
             <div class="FormName__wrapper">
             <label class="labelForm" for="name">Choose a Location for the party</label>
             <br>
@@ -64,6 +63,43 @@
     </section>
     <?php
     }
+    if ($_GET["flow"] == "overview")
+    {
+    ?>
+    <article class = "detail">
+    <h2 class = "dashboard__title detail__title"> Lan party overview</h2>
+    <section class = "detail__section">
+    <div class = "detail__section--wrapper">
+    <h3 class = "section__title"> Name: </h3>
+    <p class = "section__para"> <?php echo $_SESSION["name"] ?> </p>
+    </div>
+    <a class = "section__link" href="">edit</a>
+    </section>
+    <img class = "section__seperator" src="./assets/images/Seperation.svg" alt="">
+     <section class = "detail__section">
+    <div class = "detail__section--wrapper">
+    <h3 class = "section__title"> Date:</h3>
+    <p class = "section__para"> <?php echo $_SESSION["date"] ?>  </p>
+    </div>
+    <a class = "section__link" href="">edit</a>
+    </section>
+    <img class = "section__seperator" src="./assets/images/Seperation.svg" alt="">
+     <section class = "detail__section">
+    <div class = "detail__section--wrapper">
+    <h3 class = "section__title"> Location </h3>
+    <p class = "section__para"> <?php echo $_POST["street"]. " ".$_POST["number"]." ".$_POST["postalnumber"]." ".$_POST["city"] ?> </p>
+    </div>
+    <a class = "section__link" href="">edit</a>
+    </section>
+    <img class = "section__seperator" src="./assets/images/Seperation.svg" alt="">
+    <form class="form" action="index.php" method = "POST">
+            <input class="input__button" type="submit" value="Create Lan">
+        </form>
+
+    </article>
+    <?php
+    }
+    ?>
 
 
 

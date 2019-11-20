@@ -40,6 +40,7 @@ class LanController extends Controller {
 
   public function plan() {
 
+
   }
 
   public function detail(){
