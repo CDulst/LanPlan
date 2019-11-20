@@ -6,8 +6,6 @@
     <title>LanPlan</title>
     <?php /* NEW */ ?>
     <?php echo $css;?>
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://use.typekit.net/ape8ojm.css">
   </head>
   <div class="body__wrapper">
@@ -25,9 +23,9 @@
 
     <header class="header">
         <h1 class="header__title">Lan plan</h1>
-        <div class="header__image__container1"><img class="header__image1" src="../src/assets/images/circle_object.svg" alt="circle_object"></div>
-        <div class="header__image__container2"><img class="header__image2" src="../src/assets/images/circle_object.svg" alt="circle_object"></div>
-        <div class="header__image__container3"><img class="header__image3" src="../src/assets/images/circle_object.svg" alt="circle_object"></div>
+        <div class="header__image__container1"><img class="header__image1" src="assets/images/circle_object.svg" alt="circle_object"></div>
+        <div class="header__image__container2"><img class="header__image2" src="assets/images/circle_object.svg" alt="circle_object"></div>
+        <div class="header__image__container3"><img class="header__image3" src="assets/images/circle_object.svg" alt="circle_object"></div>
     </header>
 
     <?php echo $content;?>
