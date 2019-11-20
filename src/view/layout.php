@@ -37,9 +37,9 @@
     </footer>
     </main>
     <?php echo $js; ?>
-    </div>
+
   </body>
-  <div class="body__wrapper">
+  </div>
 
 
 </html>
