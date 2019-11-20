@@ -18,3 +18,11 @@ Met deze app kan je lanparties inplannen. Alle lanparties worden weergegeven op 
 De gebruiker kan instellen wie verantwoordelijk is voor het meebrengen van welke equipment.
 
 
+gitignore aanpassen: vendor, env.
+package.json aanpassen
+env bestand aanmaken voor lokaal gebruik
+index.php env. bestand inlezen
+DAO bestand env. inlezen
+
+
+

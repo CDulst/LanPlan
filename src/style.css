@@ -6,16 +6,18 @@
 @import url('css/button_form.css');
 @import url('css/info.css');
 
-html {
-  height: 100%;
-}
-
 .body {
   font-family: forma-djr-display, sans-serif;
   font-style: normal;
   font-weight: 200;
-  background-image: linear-gradient(45deg, #1C118E, #2B33E0);
+  background-color: #1c118e;
+
 }
+
+html {
+  height: 100%;
+}
+
 
 .dashboard {
   display: flex;
@@ -23,10 +25,11 @@ html {
   align-items: center;
   flex-direction: column;
   font-size: 1.8vw;
+
 }
 
-.dashboard__title {
-  margin-top: 10rem;
+.dashboard__title { /**/
+  margin-top: 4rem;
   font-size: 6vw;
   color: white;
   font-weight: 700;
@@ -79,96 +82,103 @@ html {
   margin:auto;
 }
 
-.detail__section{
-  display:flex;
-  justify-content:space-between;
+.detail__section {
+  display: flex;
+  justify-content: space-between;
 }
-.section__title{
-  font-size:1.5rem;
-  color:white;
+
+.section__title {
+  font-size: 1.5rem;
+  color: white;
 }
-.section__para{
-  font-size:1rem;
-  color:white;
-  margin-top:0.5rem;
+
+.section__para {
+  font-size: 1rem;
+  color: white;
+  margin-top: .5rem;
 }
-.section__link{
-  font-size:1rem;
-  color:white;
-  text-decoration:none;
-  margin-right:2rem;
-  margin-top:2rem;
-  border:white solid 1px;
-  background-color:#cf80af;
-  padding:0.2rem 2rem;
-  border-radius:2rem;
-  }
-  .section__seperator{
-    margin-bottom:2rem;
-    margin-top:2rem;
-  }
-  .section__link:hover{
-    background-color:purple;
-  }
-  .section__button{
-    width:465px;
-    margin: 2rem auto;
 
-  }
-  .return__button{
-    color:white;
-    text-decoration:none;
-    text-align:center;
-    border: white solid 1px;
-    padding :0.5rem 2rem;
-    border-radius:2rem;
-    background-color:#cf80af;
-  }
-  .return__button:hover{
-    background-color:purple;
-  }
+.section__link {
+  font-size: 1rem;
+  color: white;
+  text-decoration: none;
+  margin-right: 2rem;
+  margin-top: 2rem;
+  border: white solid 1px;
+  background-color: #cf80af;
+  padding: .2rem 2rem;
+  border-radius: 2rem;
+}
 
-  .FormName__wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.section__seperator {
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.section__link:hover {
+  background-color: purple;
+}
+
+.section__button {
+  width: 465px;
+  margin: 2rem auto;
+}
+
+.return__button {
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  border: white solid 1px;
+  padding: .5rem 2rem;
+  border-radius: 2rem;
+  background-color: #cf80af;
   }
 
-  @media screen and (max-width:465px){
-    .detail{
-      width:90%;
-    }
-    .section__seperator{
-      width:50%;
-    }
-    .section__button{
-      width:70%;
+.return__button:hover {
+  background-color:purple;
+}
 
-    }
+.FormName__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (max-width: 465px) {
+
+  .detail {
+    width: 90%;
   }
 
+  .section__seperator {
+    width: 50%;
+  }
 
+  .section__button {
+    width: 70%;
+  }
+}
 
-@media screen and (min-width:768px){
+@media screen and (min-width: 768px) {
 
-  .dashboard__location{
+  .dashboard__location {
     margin-top: 1rem;
   }
 
-   .hidden{
+  .hidden {
     display: block;
   }
-  .dashboard__date{
+
+  .dashboard__date {
     font-size: 1.3rem;
     margin-bottom: 1rem;
   }
 
-  .detail{
-    width:680px;
-  }
-  .detail{
+  .detail {
+    width: 680px;
     margin-top:5rem;
   }
+
   .input {
     margin-bottom: 4rem;
     margin-top: 1rem;
@@ -187,11 +197,13 @@ html {
   }
 
 }
-@media screen and (min-width:1200px){
+
+@media screen and (min-width: 1200px) {
 
   .dashboard__title {
     font-size: 2.5rem;
   }
+
   .dashboard__item__link {
     display: flex;
     flex-direction: row;
@@ -200,9 +212,9 @@ html {
   .dashboardNameLocation__wrapper {
     display: flex;
     flex-direction: column;
-
   }
-  .dashboard__item__link{
+
+  .dashboard__item__link {
     background-image: linear-gradient(-90deg,#EBB6EC, #C56893);
     padding: 1rem 3rem 1rem 3rem;
     border-radius: 1rem 1rem;
@@ -213,10 +225,12 @@ html {
     filter: drop-shadow(0px 10px 15px black);
     margin-bottom:3rem;
   }
-  .dashboard__items__wrapper{
+
+  .dashboard__items__wrapper {
     width: 90%;
   }
-  .dashboard__name{
+
+  .dashboard__name {
     font-weight: 700;
     font-size: 2rem;
     margin-bottom: 0rem;
@@ -234,12 +248,12 @@ html {
   }
 
   .date {
-    font-size: 0.8rem;
+    font-size: .8rem;
   }
 
   .dashboard__date {
 
-    margin-bottom: 0.5rem;
+    margin-bottom: .5rem;
     font-size: 1.2rem;
 
   }
@@ -270,7 +284,7 @@ html {
 
   }
 
-  .section__right{
+  .section__right {
     float: right;
     width: 50%;
     display: flex;
@@ -279,8 +293,8 @@ html {
     height: 40rem;
   }
 
-  .section__right__image{
-    width: 60%
+  .section__right__image {
+    width: 60%;
   }
 
   .body {
@@ -290,18 +304,18 @@ html {
     background-image: linear-gradient(to right, #1C118E 0%, #1C118E 50%, #E6BFDE 50%, #E6BFDE 100%);
 
   }
-  .detail{
-    width:590px;
-    margin-left:4rem;
 
-
-
-  }
-  .section__seperator{
-    margin-bottom:2rem;
-    margin-top:2rem;
+  .detail {
+    width: 590px;
+    margin-left: 4rem;
 
   }
+
+  .section__seperator {
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+  }
+
   .label {
     display: flex;
     justify-content: center;
@@ -313,7 +327,6 @@ html {
     font-size: 2rem;
     margin-bottom: 2rem;
     width: 50%;
-    float: left;
 
   }
 
