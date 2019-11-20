@@ -1,6 +1,8 @@
-
+     <?php
+     if ($_GET["flow"] == "name"){
+     ?>
     <section class="label">
-        <form class="form" action="">
+        <form class="form" action="index.php?page=plan&amp;flow=date">
             <div class="FormName__wrapper">
             <label class="labelForm" for="name">Choose a name for the party</label>
             <input class=" input input__name" type="text" placeholder="A wicked lan party">
@@ -9,6 +11,11 @@
             <input class="input__button" type="submit" value="Next">
         </form>
     </section>
+    <?php
+         }
+    else if ($_GET["flow"] == "date"){
+
+  ?>
 
     <section class="section__right">
         <img class="section__right__image" src="assets/images/illustration__right.svg" alt="">
@@ -25,6 +32,9 @@
             <input class="input__button" type="submit" value="Next">
         </form>
     </section>
+    <?php
+    }
+    ?>
 
 
 
