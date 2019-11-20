@@ -11,6 +11,7 @@
   justify-content: flex-end;
   overflow: hidden;
   width: 100%;
+  z-index: -1;
 
 }
 
@@ -28,6 +29,7 @@
   overflow: hidden;
   width: 100%;
   top: -4rem;
+  z-index: -1;
 }
 
 .header__image3 {
@@ -43,4 +45,8 @@
   margin-left: 1.5rem;
   margin-top: 3.5rem;
   color: #f1c3fb;
+}
+
+.logo__link {
+  text-decoration: none;
 }
