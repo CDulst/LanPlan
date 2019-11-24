@@ -56,7 +56,6 @@ if (!empty($insertTodoResult)) {
 ?>
 <section class="dashboard">
         <h2 class="dashboard__title">Your Lan parties</h2>
-
         <div class="dashboard__items__wrapper">
             <ul class="dashboard__items">
               <?php
@@ -118,14 +117,21 @@ if (!empty($insertTodoResult)) {
 
             </ul>
         </div>
+        <?php
+        if (empty($lans)){
+          ?>
+ <section class="emptystate">
+        <img class="emptyStateImage" src="assets/images/imageEmpty.svg" alt="emptystate">
+        <p class = "emptyStateText"> Add your first lan party TODAY </p>
+    </section>
+          <?php
+        }
+        ?>
         <div class="add__lanparty">
         <a href="index.php?page=plan&amp;flow=name">
         <img class="add__lanparty__image" src="assets/images/button.svg" alt="button">
         </a>
     </div>
-    </section>
-    <section class="emptystate">
-        <img class="emptyStateImage" src="assets/images/imageEmpty.svg" alt="emptystate">
     </section>
       <section class="section__right">
         <img class="section__right__image" src="assets/images/illustration__right.svg" alt="">
