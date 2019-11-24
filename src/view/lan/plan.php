@@ -2,13 +2,39 @@
      if ($_GET["flow"] == "name"){
      ?>
     <section class="label">
-        <form class="form" action="index.php?page=plan&flow=date" method = "POST">
+        <form class="form" action=<?php if (isset($_POST["edit"])){
+              echo "index.php?page=detail&id=".$_GET["id"];
+            }
+            else{
+              echo "index.php?page=plan&flow=date";
+            }
+            ?> method = "POST">
             <div class="FormName__wrapper">
-            <label class="labelForm" for="name">Choose a name for the party</label>
-            <input class=" input input__name" type="text" name = "name" placeholder="A wicked lan party">
+            <label class="labelForm" for="name"> <?php if (isset($_POST["edit"])){
+              echo "Change the name of";
+            }
+            else{
+              echo "Choose a name for";
+            }
+            ?> the party</label>
+            <input class=" input input__name" type="text" name = "name" placeholder=
+            "<?php if (isset($_POST["edit"])){
+              echo $_GET["edit"];
+            }
+            else{
+              echo "A wicked lan party";
+            }
+            ?>">
             </div>
             <p class="info">Creative choice</p>
-            <input class="input__button" type="submit" value="Next">
+            <input class="input__button" type="submit" value=
+            <?php if (isset($_POST["edit"])){
+              echo "Change";
+            }
+            else{
+              echo "Next";
+            }
+            ?>>
         </form>
     </section>
     <?php

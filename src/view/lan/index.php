@@ -83,7 +83,7 @@ if (!empty($insertTodoResult)) {
                 {
               echo '<li class="dashboard__item">
               <p class="dashboard__date">'. $date. '</p>
-              <a class="dashboard__item__link" href="index.php?page=detail">
+              <a class="dashboard__item__link" href="index.php?page=detail&id='.$lan["PartyID"].'">
               <div class="dashboardNameLocation__wrapper">
               <p class="dashboard__name">'. $lan["Name"].'</p>
               <p class="dashboard__location">'. $location["Street"]. ' ' . $location["Streetnumber"].'</p>

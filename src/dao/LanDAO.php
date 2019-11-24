@@ -27,6 +27,19 @@ class LanDAO extends DAO {
     return $stmt->execute();
   }
 
+  public function updateLan($toUpdate,$value){
+    if ($toUpdate == "Name"){
+      $sql = "UPDATE `LanParties` SET `Name` = :valu WHERE PartyID = :id";
+    }
+    if ($toUpdate == "Date"){
+      $sql = "UPDATE `LanParties` SET `Date` = :valu WHERE PartyID = :id";
+    }
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':valu', $value);
+    $stmt->bindValue(':id', $_GET["id"]);
+    return $stmt->execute();
+  }
+
   public function insertLan($data) {
     $errors = $this->validate( $data );
     if (empty($errors)) {

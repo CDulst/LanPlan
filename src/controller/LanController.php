@@ -68,8 +68,15 @@ class LanController extends Controller {
 
 
   public function detail(){
-
-
+    if (isset($_POST["name"])){
+      $toUpdate = "Name";
+      $value = $_POST["name"];
+      $lanupdate= $this->lanDAO->updateLan($toUpdate,$value);
+    }
+    $lan= $this->lanDAO->selectById($_GET["id"]);
+    $location = $this->locationDAO->selectById($lan["LocationID"]);
+    $this->set('lan', $lan);
+    $this->set('location', $location);
 
 }
 }
