@@ -40,14 +40,37 @@ class LanController extends Controller {
 
   public function plan() {
 
+    if ($_GET["flow"] == "finished"){
 
+      $location = $_SESSION["street"]." ".$_SESSION["number"]." ".$_SESSION["postalnumber"]." ".$_SESSION["city"];
+      $locationdata = array(
+        'street' => $_SESSION["street"],
+        'number' => $_SESSION["number"],
+        'postalnumber' => $_SESSION["postalnumber"],
+        'city' => $_SESSION["city"],
+      );
+      $locationadded = $this->locationDAO->insertLocation($locationdata);
+      $locationsbase = $this->locationDAO->selectAll();
+      foreach ($locationsbase as $locationbase){
+        $location2 = $locationbase["Street"]." ".$locationbase["Streetnumber"]." ".$locationbase["Postal number"]." ".$locationbase["City"];
+        if ($location = $location2){
+          $landata = array(
+            'name' => $_SESSION["name"],
+            'date' => $_SESSION["date"],
+            'locationID' => $locationbase["LocationID"]
+          );
+        }
+      }
+      $locationadded = $this->lanDAO->insertLan($landata);
+
+     }
   }
+
 
   public function detail(){
 
-  }
 
 
-
+}
 }
 

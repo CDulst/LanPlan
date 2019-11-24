@@ -65,6 +65,11 @@
     }
     if ($_GET["flow"] == "overview")
     {
+      $_SESSION["street"] = $_POST["street"];
+      $_SESSION["number"] = $_POST["number"];
+      $_SESSION["postalnumber"] = $_POST["postalnumber"];
+      $_SESSION["city"] = $_POST["city"];
+
     ?>
     <article class = "detail">
     <h2 class = "dashboard__title detail__title"> Lan party overview</h2>
@@ -92,11 +97,23 @@
     <a class = "section__link" href="">edit</a>
     </section>
     <img class = "section__seperator" src="./assets/images/Seperation.svg" alt="">
-    <form class="form" action="index.php" method = "POST">
+    <form class="form" action="index.php?page=plan&flow=finished" method = "POST">
             <input class="input__button" type="submit" value="Create Lan">
         </form>
 
     </article>
+    <?php
+    }
+    if ($_GET["flow"] == "finished"){
+    ?>
+    <section class="label">
+        <form class="form" action="index.php" method = "POST">
+            <div class="FormName__wrapper">
+            <label class="labelForm" for="name">Lanparty has been added!</label>
+            <img class="section__right__image" src="assets/images/victoryRoyale.svg" alt="">
+            <input class="input__button" type="submit" value="Next">
+        </form>
+    </section>
     <?php
     }
     ?>

@@ -27,14 +27,14 @@ class LanDAO extends DAO {
     return $stmt->execute();
   }
 
-  public function insert($data) {
+  public function insertLan($data) {
     $errors = $this->validate( $data );
     if (empty($errors)) {
-      $sql = "INSERT INTO `todos` (`Name`, `LocationID`, `Date`) VALUES (:naam, :locationid, :datum)";
+      $sql = "INSERT INTO `LanParties` (`Name`, `LocationID`, `Date`) VALUES (:naam, :locationid, :datum)";
       $stmt = $this->pdo->prepare($sql);
-      $stmt->bindValue(':naam', $data['Name']);
-      $stmt->bindValue(':locationid', $data['LocationID']);
-      $stmt->bindValue(':datum', $data['Date']);
+      $stmt->bindValue(':naam', $data['name']);
+      $stmt->bindValue(':locationid', $data['locationID']);
+      $stmt->bindValue(':datum', $data['date']);
       if ($stmt->execute()) {
         return $this->selectById($this->pdo->lastInsertId());
       }
@@ -44,13 +44,13 @@ class LanDAO extends DAO {
 
   public function validate( $data ){
     $errors = [];
-    if (!isset($data['Name'])) {
+    if (!isset($data['name'])) {
       $errors['Name'] = 'This field is required';
     }
-    if (!isset($data['LocationID'])) {
+    if (!isset($data['locationID'])) {
       $errors['LocationID'] = 'This field is required';
     }
-    if (!isset($data['Date'])) {
+    if (!isset($data['date'])) {
       $errors['Date'] =  'This field is required';
     }
     return $errors;

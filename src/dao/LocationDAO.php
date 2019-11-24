@@ -28,15 +28,15 @@ class LocationDAO extends DAO {
     return $stmt->execute();
   }
 
-  public function insert($data) {
+  public function insertLocation($data) {
     $errors = $this->validate( $data );
     if (empty($errors)) {
       $sql = "INSERT INTO `PartyLocation` (`Street`, `Streetnumber`, `City`, `Postal number`) VALUES (:Street, :Streetnumber, :City, :PostalNumber)";
       $stmt = $this->pdo->prepare($sql);
-      $stmt->bindValue(':Street', $data['Street']);
-      $stmt->bindValue(':Streetnumber', $data['Streetnumber']);
-      $stmt->bindValue(':City', $data['City']);
-      $stmt->bindValue(':PostalNumber', $data['PostalNumber']);
+      $stmt->bindValue(':Street', $data['street']);
+      $stmt->bindValue(':Streetnumber', $data['number']);
+      $stmt->bindValue(':City', $data['city']);
+      $stmt->bindValue(':PostalNumber', $data['postalnumber']);
       if ($stmt->execute()) {
         return $this->selectById($this->pdo->lastInsertId());
       }
@@ -46,16 +46,16 @@ class LocationDAO extends DAO {
 
   public function validate( $data ){
     $errors = [];
-    if (!isset($data['Street'])) {
+    if (!isset($data['street'])) {
       $errors['Street'] = 'This field is required!';
     }
-    if (!isset($data['Streetnumber'])) {
+    if (!isset($data['number'])) {
       $errors['Streetnumber'] = 'This field is required';
     }
-    if (!isset($data['City'])) {
+    if (!isset($data['city'])) {
       $errors['City'] = 'This field is required';
     }
-    if (empty($data['Postal number']) ){
+    if (empty($data['postalnumber']) ){
       $errors['Postal number'] = 'This field is required';
     }
     return $errors;
