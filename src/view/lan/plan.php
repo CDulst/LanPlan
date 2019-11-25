@@ -40,7 +40,9 @@
     <?php
          }
     if ($_GET["flow"] == "date"){
+      if (empty($_GET["edit"])){
       $_SESSION["name"] = $_POST["name"];
+      }
   ?>
 
     <section class="section__right">
@@ -48,19 +50,44 @@
     </section>
 
     <section class="label">
-        <form class="form" action="index.php?page=plan&flow=location" method = "POST">
+        <form class="form" action=<?php if (isset($_POST["edit"])){
+              echo "index.php?page=detail&id=".$_GET["id"];
+            }
+            else{
+              echo "index.php?page=plan&flow=location";
+            }
+            ?> method = "POST">
             <div class="FormName__wrapper">
-            <label class="labelForm" for="name">Choose a Date for the party</label>
-            <input class=" input input__name" name = "date" type="date">
+            <label class="labelForm" for="name"><?php if (isset($_POST["edit"])){
+              echo "Change the date of the party";
+            }
+            else{
+              echo "Choose the date of the party";
+            }
+            ?> </label>
+            <input class=" input input__name" name = "date" type="date" value=<?php
+            if (isset($_GET["edit"])){
+              echo $_GET["edit"];
+            }
+            ?>
+            >
             </div>
             <p class="info">The perfect date for a perfect party</p>
-            <input class="input__button" type="submit" value="Next">
+            <input class="input__button" type="submit" value= <?php if (isset($_POST["edit"])){
+              echo "Change";
+            }
+            else{
+              echo "Next";
+            }
+            ?>>
         </form>
     </section>
     <?php
     }
     if ($_GET["flow"] == "location"){
-      $_SESSION["date"] = $_POST["date"];
+      if (empty($_GET["edit"])){
+        $_SESSION["date"] = $_POST["date"];
+        }
     ?>
 
 <section class="section__right">
@@ -69,22 +96,64 @@
 
 
     <section class="label">
-        <form class="form" action="index.php?page=plan&flow=overview" method = "POST">
+        <form class="form" action=<?php if (isset($_POST["edit"])){
+              echo "index.php?page=detail&id=".$_GET["id"];
+            }
+            else{
+              echo "index.php?page=plan&flow=overview";
+            }
+            ?> method = "POST">
             <div class="FormName__wrapper">
-            <label class="labelForm" for="name">Choose a Location for the party</label>
+            <label class="labelForm" for="name"><?php if (isset($_POST["edit"])){
+              echo "Change the location of the party";
+            }
+            else{
+              echo "Choose the location of the party";
+            }
+            ?></label>
             <br>
             <br>
             <label class="labelForm" for="name">Street</label>
-            <input class=" input input__name" type="text" name = "street">
-            <label class="labelForm" for="name">Number</label>
-            <input class=" input input__name" type="text" name = "number">
+            <input class=" input input__name" type="text" name = "street" placeholder=<?php if (isset($_POST["edit"])){
+              echo $_GET["street"];
+            }
+            else{
+              echo "Windhelm";
+            }
+            ?>>
+            <label class="labelForm" for="name">Streetnumber</label>
+            <input class=" input input__name" type="text" name = "number" placeholder=<?php if (isset($_POST["edit"])){
+              echo $_GET["streetnumber"];
+            }
+            else{
+              echo "69";
+            }
+            ?>>
             <label class="labelForm" for="name">City</label>
-            <input class=" input input__name" type="text" name = "city">
+            <input class=" input input__name" type="text" name = "city" placeholder=<?php if (isset($_POST["edit"])){
+              echo $_GET["city"];
+            }
+            else{
+              echo "Skyrim";
+            }
+            ?>>
             <label class="labelForm" for="name">Postal Number</label>
-            <input class=" input input__name" type="text" name = "postalnumber">
+            <input class=" input input__name" type="text" name = "postalnumber" placeholder=<?php if (isset($_POST["edit"])){
+              echo $_GET["postalnumber"];
+            }
+            else{
+              echo "3000";
+            }
+            ?>>
             </div>
             <p class="info">The perfect date for a perfect party</p>
-            <input class="input__button" type="submit" value="Next">
+            <input class="input__button" type="submit" value="<?php if (isset($_POST["edit"])){
+              echo "Change";
+            }
+            else{
+              echo "Next";
+            }
+            ?>">
         </form>
     </section>
     <?php

@@ -73,7 +73,21 @@ class LanController extends Controller {
       $value = $_POST["name"];
       $lanupdate= $this->lanDAO->updateLan($toUpdate,$value);
     }
-    $lan= $this->lanDAO->selectById($_GET["id"]);
+    if (isset($_POST["date"])){
+      $toUpdate = "Date";
+      $value = $_POST["date"];
+      $lanupdate= $this->lanDAO->updateLan($toUpdate,$value);
+    }
+    $lan = $this->lanDAO->selectById($_GET["id"]);
+    if (isset($_POST["street"])){
+      $data = array(
+        'street' => $_POST["street"],
+        'streetnumber' => $_POST["number"],
+        'city' => $_POST["city"],
+        'postalnumber' => $_POST["postalnumber"]
+      );
+      $locationupdate = $this->locationDAO->updateLocation($data,$lan["LocationID"]);
+    }
     $location = $this->locationDAO->selectById($lan["LocationID"]);
     $this->set('lan', $lan);
     $this->set('location', $location);

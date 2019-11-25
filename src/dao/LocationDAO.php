@@ -28,6 +28,17 @@ class LocationDAO extends DAO {
     return $stmt->execute();
   }
 
+  public function updateLocation($data,$id){
+    $sql = "UPDATE `PartyLocation` SET `Street` = :street, `Streetnumber`= :streetnumber, `City`= :city, `Postal number` = :postalnumber WHERE LocationID = :id";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':street', $data["street"]);
+    $stmt->bindValue(':streetnumber', $data["streetnumber"]);
+    $stmt->bindValue(':city', $data["city"]);
+    $stmt->bindValue(':postalnumber', $data["postalnumber"]);
+    $stmt->bindValue(':id', $id);
+    return $stmt->execute();
+  }
+
   public function insertLocation($data) {
     $errors = $this->validate( $data );
     if (empty($errors)) {
