@@ -175,7 +175,6 @@
     </div>
     <a class = "section__link" href="">edit</a>
     </section>
-    <img class = "section__seperator" src="./assets/images/Seperation.svg" alt="">
      <section class = "detail__section">
     <div class = "detail__section--wrapper">
     <h3 class = "section__title"> Date:</h3>
@@ -183,7 +182,6 @@
     </div>
     <a class = "section__link" href="">edit</a>
     </section>
-    <img class = "section__seperator" src="./assets/images/Seperation.svg" alt="">
      <section class = "detail__section">
     <div class = "detail__section--wrapper">
     <h3 class = "section__title"> Location </h3>
@@ -191,7 +189,6 @@
     </div>
     <a class = "section__link" href="">edit</a>
     </section>
-    <img class = "section__seperator" src="./assets/images/Seperation.svg" alt="">
     <form class="form" action="index.php?page=plan&flow=finished" method = "POST">
             <input class="input__button" type="submit" value="Create Lan">
         </form>
