@@ -1,5 +1,6 @@
 require('./css/reset.css');
 require('./style.css');
+require('./js/validate.js');
 {
   const $ul = '';
   const $months = '';

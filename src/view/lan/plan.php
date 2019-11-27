@@ -17,6 +17,7 @@
               echo "Choose a name for";
             }
             ?> the party</label>
+            <p id = "errorname" class="error"></p>
             <input class=" input input__name" type="text" name = "name" placeholder=
             "<?php if (isset($_POST["edit"])){
               echo $_GET["edit"];
@@ -24,9 +25,10 @@
             else{
               echo "A wicked lan party";
             }
-            ?>">
+            ?>" required>
             </div>
-            <p class="info">Creative choice</p>
+            <p class="info feedback">Creative choice</p>
+
             <input class="input__button" type="submit" value=
             <?php if (isset($_POST["edit"])){
               echo "Change";
@@ -65,15 +67,16 @@
               echo "Choose the date of the party";
             }
             ?> </label>
-            <input class=" input input__name" name = "date" type="date" value=<?php
+            <p id = "errorname" class="error"></p>
+            <input required id = "date" class=" input input__name" name = "date" type="date" value=<?php
             if (isset($_GET["edit"])){
               echo $_GET["edit"];
             }
             ?>
             >
             </div>
-            <p class="info">The perfect date for a perfect party</p>
-            <input class="input__button" type="submit" value= <?php if (isset($_POST["edit"])){
+            <p class="info feedback">The perfect date for a perfect party <img src="/assets/images/aprove.svg"alt=""></p>
+            <input class="input input__button" type="submit" value= <?php if (isset($_POST["edit"])){
               echo "Change";
             }
             else{
@@ -175,7 +178,6 @@
     </div>
     <a class = "section__link" href="">edit</a>
     </section>
-    <img class = "section__seperator" src="./assets/images/Seperation.svg" alt="">
      <section class = "detail__section">
     <div class = "detail__section--wrapper">
     <h3 class = "section__title"> Date:</h3>
@@ -183,7 +185,6 @@
     </div>
     <a class = "section__link" href="">edit</a>
     </section>
-    <img class = "section__seperator" src="./assets/images/Seperation.svg" alt="">
      <section class = "detail__section">
     <div class = "detail__section--wrapper">
     <h3 class = "section__title"> Location </h3>
@@ -191,7 +192,6 @@
     </div>
     <a class = "section__link" href="">edit</a>
     </section>
-    <img class = "section__seperator" src="./assets/images/Seperation.svg" alt="">
     <form class="form" action="index.php?page=plan&flow=finished" method = "POST">
             <input class="input__button" type="submit" value="Create Lan">
         </form>

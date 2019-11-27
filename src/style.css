@@ -5,6 +5,7 @@
 @import url(css/button.css);
 @import url(css/button_form.css);
 @import url(css/info.css);
+@import url(css/error.css);
 
 .body {
   font-family: forma-djr-display, sans-serif;
@@ -235,8 +236,6 @@ input::placeholder {
 
   .dashboard__items__wrapper {
     width: 90%;
-    height: 27rem;
-    overflow: scroll;
     margin-bottom: 3rem;
 
     padding: 2rem;
