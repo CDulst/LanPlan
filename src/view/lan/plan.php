@@ -68,7 +68,7 @@
             }
             ?> </label>
             <p id = "errorname" class="error"></p>
-            <input required id = "date" class=" input input__name" name = "date" type="date" value=<?php
+            <input required id = "date" data-info-message="Good date for a party" data-error-message="please choose a date for your party" class=" input input__name" name = "date" type="date" value=<?php
             if (isset($_GET["edit"])){
               echo $_GET["edit"];
             }
