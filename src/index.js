@@ -14,7 +14,9 @@ require('./js/validate.js');
 
   const init = () => {
     console.log('test');
-
+    setInterval(function() {
+      timer();
+    }, 1000);
 
     /*$(function() {
     // Just one method to add a date picker!
@@ -29,9 +31,6 @@ require('./js/validate.js');
       $insertTodoForm.addEventListener(`submit`, handleSubmitInsertTodoForm);
     }
     */
-    setInterval(function() {
-      timer();
-    }, 1000);
   };
 
 

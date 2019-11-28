@@ -19,14 +19,42 @@
     let correct = false;
     if ($field.validity.valueMissing) {
       message = `The field is empty`;
+      correct = false;
     }
     else
     {
-      message = `Creative choice`;
-      if ($field.id === 'date') {
-        message = `Good date for a party`;
+      if ($field.id === 'date' || $field.id === 'name') {
+        message = `Creative choice`;
+        correct = true;
       }
-      correct = true;
+
+
+    }
+    if ($field.id === 'date') {
+      console.log($field.value);
+      const date = new Date();
+      date.setHours(0, 0, 0, 0);
+      const fielddate = new Date($field.value);
+      console.log(date);
+      console.log(fielddate);
+
+      if (fielddate < date)
+      {
+        console.log($field.value);
+        message = `Date has already passed`;
+        correct = false;
+      }
+      else if ($field.validity.valueMissing)
+      {
+        message = `The field is empty`;
+        correct = false;
+      }
+      else
+      {
+        message = `Good date for a party`;
+        correct = true;
+      }
+
     }
     if ($field.validity.typeMismatch) {
       message = `Type not right`;
@@ -50,8 +78,8 @@
       const $errors = document.querySelectorAll(`.error`);
       console.log($errors);
       $errors.forEach(error => {
-
-        error.textContent = message;
+        if (error.id === $field.id)
+          error.textContent = message;
 
       });
 
@@ -68,9 +96,13 @@
     document.querySelector('.feedback').style.display = 'none';
     const $field = e.currentTarget;
     if ($field.checkValidity()) {
-      $field.parentElement.querySelector(`.error`).textContent = ``;
+      const $errors = document.querySelectorAll(`.error`);
+      $errors.forEach($error => {
+        $error.textContent = '';
+      });
+
       if ($field.form.checkValidity()) {
-        $field.form.querySelector(`.error`).innerHTML = ``;
+        document.querySelector(`.infoerror`).textContent = ``;
       }
     }
   };
@@ -89,12 +121,14 @@
 
   const init = () => {
     const $form = document.querySelector(`form`);
-    $form.noValidate = true;
-    $form.addEventListener(`submit`, handleSubmitForm);
+    if ($form != null) {
+      $form.noValidate = true;
+      $form.addEventListener(`submit`, handleSubmitForm);
+      const fields = $form.querySelectorAll(`.input`);
+      addValidationListeners(fields);
+      console.log(document.querySelector(`.error`));
+    }
 
-    const fields = $form.querySelectorAll(`.input`);
-    addValidationListeners(fields);
-    console.log(document.querySelector(`.error`));
   };
 
   init();
