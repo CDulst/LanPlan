@@ -40,6 +40,19 @@ class LanController extends Controller {
 
   public function plan() {
 
+    if (isset($_POST["name"]) && $_POST["name"] == " "){
+      header('Location: index.php?page=plan&flow=name');
+      exit;
+    }
+
+    if (isset($_POST["date"]) && strtotime($_POST["date"]) < time())
+{
+
+  header('Location: index.php?page=plan&flow=date&error='.$_POST['date']);
+  exit;
+}
+
+
     if ($_GET["flow"] == "finished"){
 
       $location = $_SESSION["street"]." ".$_SESSION["number"]." ".$_SESSION["postalnumber"]." ".$_SESSION["city"];

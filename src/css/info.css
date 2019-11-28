@@ -3,12 +3,14 @@
   /*display flex to make visible*/
   align-items: center;
   justify-content: center;
+  color:red;
 
 }
 
 .feedback {
   display:none;
   color:white;
+  color:red;
 }
 
 /*.info::after {
