@@ -1,27 +1,37 @@
 <?php
 require_once( __DIR__ . '/DAO.php');
 
-class LanDAO extends DAO {
+class SnacksDAO extends DAO {
 
 
 
   public function selectAll(){
-    $sql = "SELECT * FROM `LanParties`";
+    $sql = "SELECT * FROM `LanSnacks`";
     $stmt = $this->pdo->prepare($sql);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
 
   public function selectById($id){
-    $sql = "SELECT * FROM `LanParties` WHERE `PartyID` = :id";
+    $sql = "SELECT * FROM `LanSnacks` WHERE `Snackid` = :id";
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindValue(':id', $id);
     $stmt->execute();
     return $stmt->fetch(PDO::FETCH_ASSOC);
   }
 
+  public function selectSnacksById($id){
+    $sql = "SELECT * FROM `Lanparty_LanSnacks` WHERE `SnacksID` = :id";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':id', $id);
+    $stmt->execute();
+    return $stmt->fetchALL(PDO::FETCH_ASSOC);
+  }
+
+
+
   public function delete($id){
-    $sql = "DELETE FROM `LanParties` WHERE `PartyID` = :id";
+    $sql = "DELETE FROM `Lanparty_LanSnacks` WHERE `SnacksID` = :id";
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindValue(':id', $id);
     return $stmt->execute();
@@ -34,24 +44,31 @@ class LanDAO extends DAO {
     if ($toUpdate == "Date"){
       $sql = "UPDATE `LanParties` SET `Date` = :valu WHERE PartyID = :id";
     }
-    if ($toUpdate == "SnacksID"){
-      $sql = "UPDATE `LanParties` SET `SnacksID` = :valu WHERE PartyID = :id";
-    }
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindValue(':valu', $value);
     $stmt->bindValue(':id', $_GET["id"]);
     return $stmt->execute();
   }
 
-  public function insertLan($data) {
+  public function insertSnacksid($snackdata) {
+      $sql = "INSERT INTO `Lanparty_LanSnacks` (`SnacksID`, `SnackID`) VALUES (:snacksid,:snackid)";
+      $stmt = $this->pdo->prepare($sql);
+      $stmt->bindValue(':snacksid', $snackdata['snacksid']);
+      $stmt->bindValue(':snackid', $snackdata['snackid']);
+      if ($stmt->execute()) {
+        return $this->selectById($this->pdo->lastInsertId());
+      }
+    return false;
+  }
+
+  public function insertSnack($data) {
     $errors = $this->validate( $data );
     if (empty($errors)) {
-      $sql = "INSERT INTO `LanParties` (`Name`, `LocationID`, `Date`, `SnacksID`) VALUES (:naam, :locationid, :datum, :snacksid)";
+      $sql = "INSERT INTO `LanParties` (`Name`, `LocationID`, `Date`) VALUES (:naam, :locationid, :datum)";
       $stmt = $this->pdo->prepare($sql);
       $stmt->bindValue(':naam', $data['name']);
       $stmt->bindValue(':locationid', $data['locationID']);
       $stmt->bindValue(':datum', $data['date']);
-      $stmt->bindValue(':snacksid', $data['snacksid']);
       if ($stmt->execute()) {
         return $this->selectById($this->pdo->lastInsertId());
       }

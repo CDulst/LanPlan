@@ -1,11 +1,14 @@
      <?php
      if ($_GET["flow"] == "name"){
      ?>
+       <section class="section__right">
+        <img class="section__right__image" src="assets/images/illustration__right.svg" alt="">
+    </section>
     <section class="label">
         <form class="form" action=<?php if (isset($_POST["edit"])){
               echo "index.php?page=detail&id=".$_GET["id"];
             }
-            if (isset($_POST["return"])){
+            else if (isset($_POST["return"])){
               echo "index.php?page=plan&flow=overview";
             }
             else{
@@ -43,7 +46,7 @@
     <?php
          }
     if ($_GET["flow"] == "date"){
-      if (empty($_GET["edit"]) && !isset($_POST["return"]) && empty($_SESSION["name"])){
+      if (empty($_GET["edit"]) && !isset($_POST["return"])){
       $_SESSION["name"] = $_POST["name"];
       }
   ?>
@@ -56,7 +59,7 @@
         <form class="form" action=<?php if (isset($_POST["edit"])){
               echo "index.php?page=detail&id=".$_GET["id"];
             }
-            if (isset($_POST["return"])){
+            else if (isset($_POST["return"])){
               echo "index.php?page=plan&flow=overview";
             }
             else{
@@ -119,7 +122,7 @@
               echo "index.php?page=detail&id=".$_GET["id"];
             }
             else{
-              echo "index.php?page=plan&flow=overview";
+              echo "index.php?page=plan&flow=snacks";
             }
             ?> method = "POST">
             <div class="FormName__wrapper">
@@ -168,10 +171,87 @@
         </form>
     </section>
     <?php
+         }
+    if ($_GET["flow"] == "snacks"){
+      if (empty($_GET["edit"]) && !isset($_POST["return"])){
+        if (!empty($_POST["street"])){
+          $_SESSION["street"] = $_POST["street"];
+          $_SESSION["number"] = $_POST["number"];
+          $_SESSION["postalnumber"] = $_POST["postalnumber"];
+          $_SESSION["city"] = $_POST["city"];
+        }
+      }
+  ?>
+
+    <section class="section__right">
+        <img class="section__right__image" src="assets/images/illustration__right.svg" alt="">
+    </section>
+
+    <section class="label">
+        <form class="form" action=<?php if (isset($_GET["edit"])){
+              echo "index.php?page=detail&id=".$_GET["id"]."&edit=".$_GET["edit"];
+            }
+            else if (isset($_POST["return"])){
+              echo "index.php?page=plan&flow=overview";
+            }
+            else{
+              echo "index.php?page=plan&flow=overview";
+            }
+            ?> method = "POST">
+            <div class="FormName__wrapper">
+            <label class="labelForm" for="name"><?php if (isset($_POST["edit"]) || isset($_POST["return"])){
+              echo "Select snacks for the lan-party";
+            }
+            else{
+              echo "Select snacks for the lan-party ";
+            }
+            ?> </label>
+            <div class = "snacks__wrappers">
+            <?php
+            foreach($snacks as $snack){
+              ?>
+            <div class = "snacks__wrapper">
+            <label class="smallerlabel" for="name"><?php echo $snack["Snackname"]?></label>
+            <img src = "data:image/jpeg;base64,<?php
+            $encoded_image = base64_encode($snack["Snackimage"]);
+            echo $encoded_image?>">
+            <input id = "snack"  class=" input__check " name = "snack[]" value = "<?php echo $snack["Snackid"] ?>" type="checkbox" <?php
+            if (isset($_GET[$snack["Snackid"]])){
+              echo "checked";
+            }?>>
+          </div>
+
+          <?php
+            }
+            ?>
+            </div>
+
+          </div>
+
+            <?php
+            if (!empty($_GET["error"])){
+              ?>
+              <p class="info infoerror">........</p>
+              <?php
+            }
+            ?>
+
+            <p class="info feedback">Delicious snacks <img src="/assets/images/aprove.svg"alt=""></p>
+            <input class="input input__button" type="submit" value= <?php if (isset($_POST["edit"]) || isset($_POST["return"])){
+              echo "Change";
+            }
+            else{
+              echo "Next";
+            }
+            ?>>
+        </form>
+    </section>
+    <?php
     }
     if ($_GET["flow"] == "overview")
     {
       if (!empty($_POST["street"])){
+
         $_SESSION["street"] = $_POST["street"];
         $_SESSION["number"] = $_POST["number"];
         $_SESSION["postalnumber"] = $_POST["postalnumber"];
@@ -185,11 +265,22 @@
       if (!empty($_POST["date"])){
         $_SESSION["date"] = $_POST["date"];
       }
+      if (!empty($_POST["snack"])){
+        $_SESSION["snack"] = $snacks;
+      }
 
 
     ?>
+      <section class="section__right">
+        <img class="section__right__image" src="assets/images/illustration__right.svg" alt="">
+    </section>
  <article class = "detail">
-    <h2 class = "dashboard__title detail__title"> Lan party overview</h2>
+    <h2 class = "dashboard__title detail__title"> Create lanparty </h2>
+    <form class="form createlan" action="index.php?page=plan&flow=finished" method = "POST">
+            <input class="input__button" type="submit" value="Confirm">
+        </form>
+        <p class = "section__title"> Want to make changes first? </p>
+    <div class = "detail__wrapper">
     <section class = "detail__section">
     <div class = "detail__section--wrapper">
     <h3 class = "section__title"> Name: </h3>
@@ -219,14 +310,38 @@
     <input class="input__button" name = "return" type="submit" value="Edit">
     </form>
     </section>
-    <form class="form" action="index.php?page=plan&flow=finished" method = "POST">
-            <input class="input__button" type="submit" value="Create Lan">
-        </form>
+    <section class = "detail__section">
+    <div class = "detail__section--wrapper">
+    <h3 class = "section__title"> Snacks </h3>
+    <?php
+    foreach ($snacks as $snack){
+      ?>
+       <img src = "data:image/jpeg;base64,<?php
+            $encoded_image = base64_encode($snack["Snackimage"]);
+            echo $encoded_image?>">
+      <?php
+    }
+    ?>
+
+    </div>
+
+    <form class="form" action="index.php?page=plan&flow=snacks<?php
+    foreach ($snacks as $snack){
+      echo "&".$snack["Snackid"]."=true";
+    }?>" method = "POST">
+    <input class="input__button" name = "return" type="submit" value="Edit">
+    </form>
+    </section>
+
+  </div>
+
+
 
     </article>
     <?php
     }
     if ($_GET["flow"] == "finished"){
+
     ?>
     <section class="label">
         <form class="form" action="index.php" method = "POST">
