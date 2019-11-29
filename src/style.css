@@ -19,6 +19,52 @@ html {
   height: 100%;
 }
 
+.snacks__wrapper {
+  margin-bottom: 1rem;
+  padding: 0rem 1rem;
+}
+
+.detail__wrapper {
+
+  overflow: scroll;
+  height:30rem;
+
+}
+
+::-webkit-scrollbar {
+  background: transparent /* make scrollbar transparent */
+}
+
+.createlan {
+  margin-bottom: 3rem;
+}
+
+.snacks__wrappers {
+
+  height: 25rem;
+  overflow: scroll;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: 2rem;
+  justify-content: enter;
+}
+
+.smallerlabel {
+  font-size: 1rem;
+  margin-bottom: .5rem;
+}
+
+.input__check {
+  margin-top: .8rem;
+  margin-left: 3rem;
+}
+
+.snacks__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 .dashboard {
   display: flex;
   justify-content: flex-start;

@@ -3,6 +3,7 @@
 require_once __DIR__ . '/Controller.php';
 require_once __DIR__ . '/../dao/LanDAO.php';
 require_once __DIR__ . '/../dao/LocationDAO.php';
+require_once __DIR__ . '/../dao/SnacksDAO.php';
 
 class LanController extends Controller {
 
@@ -12,6 +13,7 @@ class LanController extends Controller {
   function __construct() {
     $this->lanDAO = new LanDAO();
     $this->locationDAO = new LocationDAO();
+    $this->snacksDAO = new  SnacksDAO();
   }
 
 
@@ -52,8 +54,31 @@ class LanController extends Controller {
   exit;
 }
 
+   if ($_GET["flow"] == "snacks"){
+    $snacks = $this->snacksDAO->selectAll();
+    $this->set('snacks', $snacks);
+   }
+
+   if (isset($_POST["snack"])){
+    $snacksarray = array();
+    foreach ($_POST["snack"] as $snack){
+      $snack = $this->snacksDAO->selectById($snack);
+      array_push($snacksarray,$snack);
+    }
+    $this->set('snacks', $snacksarray);
+   }
+
 
     if ($_GET["flow"] == "finished"){
+
+      $SnacksID = rand(1,100000);
+      foreach ($_SESSION["snack"] as $snack){
+        $snackdata = array(
+          'snacksid' => $SnacksID,
+          'snackid' => $snack["Snackid"]
+        );
+        $snackadded = $this->snacksDAO->insertSnacksid($snackdata);
+      }
 
       $location = $_SESSION["street"]." ".$_SESSION["number"]." ".$_SESSION["postalnumber"]." ".$_SESSION["city"];
       $locationdata = array(
@@ -70,7 +95,8 @@ class LanController extends Controller {
           $landata = array(
             'name' => $_SESSION["name"],
             'date' => $_SESSION["date"],
-            'locationID' => $locationbase["LocationID"]
+            'locationID' => $locationbase["LocationID"],
+            'snacksid' => $SnacksID
           );
         }
       }
@@ -91,6 +117,21 @@ class LanController extends Controller {
       $value = $_POST["date"];
       $lanupdate= $this->lanDAO->updateLan($toUpdate,$value);
     }
+    if (isset($_POST["snack"])){
+      $delete = $this->snacksDAO->delete($_GET["edit"]);
+      $SnacksID = rand(1,100000);
+      foreach ($_POST["snack"] as $snack){
+        $snackdata = array(
+          'snacksid' => $SnacksID,
+          'snackid' => $snack
+        );
+        $snackadded = $this->snacksDAO->insertSnacksid($snackdata);
+      $toUpdate = "SnacksID";
+      $value = $SnacksID;
+      $lanupdate= $this->lanDAO->updateLan($toUpdate,$value);
+      }
+
+    }
     $lan = $this->lanDAO->selectById($_GET["id"]);
     if (isset($_POST["street"])){
       $data = array(
@@ -102,8 +143,17 @@ class LanController extends Controller {
       $locationupdate = $this->locationDAO->updateLocation($data,$lan["LocationID"]);
     }
     $location = $this->locationDAO->selectById($lan["LocationID"]);
+    $snackid = $this->snacksDAO->selectSnacksById($lan["SnacksID"]);
     $this->set('lan', $lan);
     $this->set('location', $location);
+    $snacksarray = array();
+    foreach ($snackid as $snack){
+      $snack = $this->snacksDAO->selectById($snack["SnackID"]);
+      array_push($snacksarray,$snack);
+    }
+    $this->set('snacks', $snacksarray);
+
+
 
 }
 }
