@@ -4,6 +4,9 @@ require_once __DIR__ . '/Controller.php';
 require_once __DIR__ . '/../dao/LanDAO.php';
 require_once __DIR__ . '/../dao/LocationDAO.php';
 require_once __DIR__ . '/../dao/SnacksDAO.php';
+require_once __DIR__ . '/../dao/GamesDAO.php';
+require_once __DIR__ . '/../dao/SystemsDAO.php';
+
 
 class LanController extends Controller {
 
@@ -14,6 +17,8 @@ class LanController extends Controller {
     $this->lanDAO = new LanDAO();
     $this->locationDAO = new LocationDAO();
     $this->snacksDAO = new  SnacksDAO();
+    $this->gamesDAO = new  GamesDAO();
+    $this->systemsDAO = new  SystemsDAO();
   }
 
 
@@ -59,6 +64,16 @@ class LanController extends Controller {
     $this->set('snacks', $snacks);
    }
 
+   if ($_GET["flow"] == "games"){
+    $games = $this->gamesDAO->selectAll();
+    $this->set('games', $games);
+   }
+
+   if ($_GET["flow"] == "systems"){
+    $systems = $this->systemsDAO->selectAll();
+    $this->set('systems', $systems);
+   }
+
    if (isset($_POST["snack"])){
     $snacksarray = array();
     foreach ($_POST["snack"] as $snack){
@@ -68,16 +83,50 @@ class LanController extends Controller {
     $this->set('snacks', $snacksarray);
    }
 
+   if (isset($_POST["game"])){
+    $gamesarray = array();
+    foreach ($_POST["game"] as $game){
+      $games = $this->gamesDAO->selectById($game);
+      array_push($gamesarray,$games);
+    }
+    $this->set('games', $gamesarray);
+   }
+
+   if (isset($_POST["system"])){
+    $systemsarray = array();
+    foreach ($_POST["system"] as $system){
+      $systems = $this->systemsDAO->selectById($system);
+      array_push($systemsarray,$systems);
+    }
+    $this->set('systems', $systemsarray);
+   }
+
 
     if ($_GET["flow"] == "finished"){
 
       $SnacksID = rand(1,100000);
+      $GamesID = rand(1,100000);
+      $SystemsID = rand(1,100000);
       foreach ($_SESSION["snack"] as $snack){
         $snackdata = array(
           'snacksid' => $SnacksID,
           'snackid' => $snack["Snackid"]
         );
         $snackadded = $this->snacksDAO->insertSnacksid($snackdata);
+      }
+      foreach ($_SESSION["game"] as $game){
+        $gamedata = array(
+          'gamesid' => $GamesID,
+          'gameid' => $game["GameID"]
+        );
+        $gameadded = $this->gamesDAO->insertGamesid($gamedata);
+      }
+      foreach ($_SESSION["system"] as $system){
+        $systemdata = array(
+          'systemsid' => $SystemsID,
+          'systemid' => $system["SystemID"]
+        );
+        $systemadded = $this->systemsDAO->insertSystemsid($systemdata);
       }
 
       $location = $_SESSION["street"]." ".$_SESSION["number"]." ".$_SESSION["postalnumber"]." ".$_SESSION["city"];
@@ -96,7 +145,9 @@ class LanController extends Controller {
             'name' => $_SESSION["name"],
             'date' => $_SESSION["date"],
             'locationID' => $locationbase["LocationID"],
-            'snacksid' => $SnacksID
+            'snacksid' => $SnacksID,
+            'gamesid' => $GamesID,
+            'systemsid' => $SystemsID
           );
         }
       }

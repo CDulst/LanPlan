@@ -195,7 +195,7 @@
               echo "index.php?page=plan&flow=overview";
             }
             else{
-              echo "index.php?page=plan&flow=overview";
+              echo "index.php?page=plan&flow=games";
             }
             ?> method = "POST">
             <div class="FormName__wrapper">
@@ -246,6 +246,152 @@
             ?>>
         </form>
     </section>
+     <?php
+         }
+    if ($_GET["flow"] == "games"){
+      if (empty($_GET["edit"]) && !isset($_POST["return"])){
+        if (!empty($_POST["snack"])){
+          $_SESSION["snack"] = $snacks;
+        }
+      }
+  ?>
+
+    <section class="section__right">
+        <img class="section__right__image" src="assets/images/illustration__right.svg" alt="">
+    </section>
+
+    <section class="label">
+        <form class="form" action=<?php if (isset($_GET["edit"])){
+              echo "index.php?page=detail&id=".$_GET["id"]."&edit=".$_GET["edit"];
+            }
+            else if (isset($_POST["return"])){
+              echo "index.php?page=plan&flow=overview";
+            }
+            else{
+              echo "index.php?page=plan&flow=systems";
+            }
+            ?> method = "POST">
+            <div class="FormName__wrapper">
+            <label class="labelForm" for="name"><?php if (isset($_POST["edit"]) || isset($_POST["return"])){
+              echo "Select games for the lan-party";
+            }
+            else{
+              echo "Select games for the lan-party ";
+            }
+            ?> </label>
+            <div class = "snacks__wrappers">
+            <?php
+            foreach($games as $game){
+              ?>
+            <div class = "snacks__wrapper">
+            <label class="smallerlabel" for="name"><?php echo $game["GameName"]?></label>
+            <img class = "gameimage" src = "data:image/jpeg;base64,<?php
+            $encoded_image = base64_encode($game["GameImage"]);
+            echo $encoded_image?>">
+            <input id = "game"  class=" input__check " name = "game[]" value = "<?php echo $game["GameID"] ?>" type="checkbox" <?php
+            if (isset($_GET[$game["GameID"]])){
+              echo "checked";
+            }?>>
+          </div>
+
+          <?php
+            }
+            ?>
+            </div>
+
+          </div>
+
+            <?php
+            if (!empty($_GET["error"])){
+              ?>
+              <p class="info infoerror">........</p>
+              <?php
+            }
+            ?>
+
+            <p class="info feedback">nice games <img src="/assets/images/aprove.svg"alt=""></p>
+            <input class="input input__button" type="submit" value= <?php if (isset($_POST["edit"]) || isset($_POST["return"])){
+              echo "Change";
+            }
+            else{
+              echo "Next";
+            }
+            ?>>
+        </form>
+    </section>
+    <?php
+         }
+    if ($_GET["flow"] == "systems"){
+      if (empty($_GET["edit"]) && !isset($_POST["return"])){
+        if (!empty($_POST["game"])){
+          $_SESSION["game"] = $games;
+        }
+      }
+  ?>
+
+    <section class="section__right">
+        <img class="section__right__image" src="assets/images/illustration__right.svg" alt="">
+    </section>
+
+    <section class="label">
+        <form class="form" action=<?php if (isset($_GET["edit"])){
+              echo "index.php?page=detail&id=".$_GET["id"]."&edit=".$_GET["edit"];
+            }
+            else if (isset($_POST["return"])){
+              echo "index.php?page=plan&flow=overview";
+            }
+            else{
+              echo "index.php?page=plan&flow=overview";
+            }
+            ?> method = "POST">
+            <div class="FormName__wrapper">
+            <label class="labelForm" for="name"><?php if (isset($_POST["edit"]) || isset($_POST["return"])){
+              echo "Select Systems for the lan-party";
+            }
+            else{
+              echo "Select System for the lan-party ";
+            }
+            ?> </label>
+            <div class = "snacks__wrappers">
+            <?php
+            foreach($systems as $system){
+              ?>
+            <div class = "snacks__wrapper">
+            <label class="smallerlabel" for="name"><?php echo $system["SystemName"]?></label>
+            <img class = "gameimage" src = "data:image/jpeg;base64,<?php
+            $encoded_image = base64_encode($system["SystemImage"]);
+            echo $encoded_image?>">
+            <input id = "game"  class=" input__check " name = "system[]" value = "<?php echo $system["SystemID"] ?>" type="checkbox" <?php
+            if (isset($_GET[$system["SystemID"]])){
+              echo "checked";
+            }?>>
+          </div>
+
+          <?php
+            }
+            ?>
+            </div>
+
+          </div>
+
+            <?php
+            if (!empty($_GET["error"])){
+              ?>
+              <p class="info infoerror">........</p>
+              <?php
+            }
+            ?>
+
+            <p class="info feedback">nice games <img src="/assets/images/aprove.svg"alt=""></p>
+            <input class="input input__button" type="submit" value= <?php if (isset($_POST["edit"]) || isset($_POST["return"])){
+              echo "Change";
+            }
+            else{
+              echo "Next";
+            }
+            ?>>
+        </form>
+    </section>
     <?php
     }
     if ($_GET["flow"] == "overview")
@@ -267,6 +413,12 @@
       }
       if (!empty($_POST["snack"])){
         $_SESSION["snack"] = $snacks;
+      }
+      if (!empty($_POST["game"])){
+        $_SESSION["game"] = $games;
+      }
+      if (!empty($_POST["system"])){
+        $_SESSION["system"] = $systems;
       }
 
 
@@ -301,7 +453,7 @@
     </form>
     </section>
 
-     <section class = "detail__section">
+    <section class = "detail__section">
     <div class = "detail__section--wrapper">
     <h3 class = "section__title"> Location </h3>
     <p class = "section__para"> <?php echo $_SESSION["street"]." ".$_SESSION["number"]." ".$_SESSION["postalnumber"]." ".$_SESSION["city"]?></p>
@@ -314,7 +466,7 @@
     <div class = "detail__section--wrapper">
     <h3 class = "section__title"> Snacks </h3>
     <?php
-    foreach ($snacks as $snack){
+    foreach ($_SESSION["snack"] as $snack){
       ?>
        <img src = "data:image/jpeg;base64,<?php
             $encoded_image = base64_encode($snack["Snackimage"]);
@@ -326,8 +478,53 @@
     </div>
 
     <form class="form" action="index.php?page=plan&flow=snacks<?php
-    foreach ($snacks as $snack){
+    foreach ($_SESSION["snack"] as $snack){
       echo "&".$snack["Snackid"]."=true";
+    }?>" method = "POST">
+    <input class="input__button" name = "return" type="submit" value="Edit">
+    </form>
+    </section>
+    <section class = "detail__section">
+    <div class = "detail__section--wrapper">
+    <h3 class = "section__title"> Games </h3>
+    <?php
+    foreach ($_SESSION["game"] as $game){
+      ?>
+       <img src = "data:image/jpeg;base64,<?php
+            $encoded_image = base64_encode($game["GameImage"]);
+            echo $encoded_image?>">
+      <?php
+    }
+    ?>
+
+    </div>
+
+    <form class="form" action="index.php?page=plan&flow=games<?php
+    foreach ( $_SESSION["game"] as $game){
+      echo "&".$game["GameID"]."=true";
+    }?>" method = "POST">
+    <input class="input__button" name = "return" type="submit" value="Edit">
+    </form>
+    </section>
+
+    <section class = "detail__section">
+    <div class = "detail__section--wrapper">
+    <h3 class = "section__title"> Systems </h3>
+    <?php
+    foreach ($_SESSION["system"] as $system){
+      ?>
+       <img src = "data:image/jpeg;base64,<?php
+            $encoded_image = base64_encode($system["SystemImage"]);
+            echo $encoded_image?>">
+      <?php
+    }
+    ?>
+
+    </div>
+
+    <form class="form" action="index.php?page=plan&flow=systems<?php
+    foreach ( $_SESSION["system"] as $system){
+      echo "&".$system["SystemID"]."=true";
     }?>" method = "POST">
     <input class="input__button" name = "return" type="submit" value="Edit">
     </form>
