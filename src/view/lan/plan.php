@@ -47,7 +47,11 @@
          }
     if ($_GET["flow"] == "date"){
       if (empty($_GET["edit"]) && !isset($_POST["return"])){
-      $_SESSION["name"] = $_POST["name"];
+        if (empty($_SESSION["name"])){
+          $_SESSION["name"] = $_POST["name"];
+        }
+
+
       }
   ?>
 
