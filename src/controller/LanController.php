@@ -61,16 +61,28 @@ class LanController extends Controller {
 
    if ($_GET["flow"] == "snacks"){
     $snacks = $this->snacksDAO->selectAll();
+    if ($_SERVER['HTTP_ACCEPT'] == 'application/json') {
+      echo json_encode($snacks);
+      exit();
+    }
     $this->set('snacks', $snacks);
    }
 
    if ($_GET["flow"] == "games"){
     $games = $this->gamesDAO->selectAll();
+    if ($_SERVER['HTTP_ACCEPT'] == 'application/json') {
+      echo json_encode($games);
+      exit();
+    }
     $this->set('games', $games);
    }
 
    if ($_GET["flow"] == "systems"){
     $systems = $this->systemsDAO->selectAll();
+    if ($_SERVER['HTTP_ACCEPT'] == 'application/json') {
+      echo json_encode($systems);
+      exit();
+    }
     $this->set('systems', $systems);
    }
 

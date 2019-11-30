@@ -13,7 +13,12 @@ require('./js/validate.js');
     $inputText = document.getElementById(`inputText`);
 
   const init = () => {
+    new Headers({
+      Accept: 'application/json'
+    });
+
     console.log('test');
+    checkflow();
     setInterval(function() {
       timer();
     }, 1000);
@@ -130,6 +135,20 @@ require('./js/validate.js');
     }
   };
 
+
+  const checkflow = () => {
+    const url = window.location.search.slice(1).split(`&`);
+    if (url[1] != null)
+    {
+      const page = (url[1].split('=')[1]);
+      if (page != null) {
+        console.log(page);
+
+      }
+    }
+
+
+  };
   init();
 
 }

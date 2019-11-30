@@ -47,7 +47,7 @@
          }
     if ($_GET["flow"] == "date"){
       if (empty($_GET["edit"]) && !isset($_POST["return"])){
-        if (empty($_SESSION["name"])){
+        if (!empty($_POST["name"])){
           $_SESSION["name"] = $_POST["name"];
         }
 
@@ -215,14 +215,18 @@
             foreach($snacks as $snack){
               ?>
             <div class = "snacks__wrapper">
-            <label class="smallerlabel" for="name"><?php echo $snack["Snackname"]?></label>
-            <img src = "data:image/jpeg;base64,<?php
-            $encoded_image = base64_encode($snack["Snackimage"]);
-            echo $encoded_image?>">
-            <input id = "snack"  class=" input__check " name = "snack[]" value = "<?php echo $snack["Snackid"] ?>" type="checkbox" <?php
+            <input id = "<?php echo $snack["Snackname"]?>"  class=" input__check " name = "snack[]" value = "<?php echo $snack["Snackid"] ?>" type="checkbox" <?php
             if (isset($_GET[$snack["Snackid"]])){
               echo "checked";
             }?>>
+            <label class = "labelcheckbox" id = "<?php echo $snack["Snackname"]?>" for = "<?php echo $snack["Snackname"]?>">
+            <label class="smallerlabel" for="name"><?php echo $snack["Snackname"]?></label>
+            <img class = "datasnacks imagedata"  src = "data:image/jpeg;base64,<?php
+            $encoded_image = base64_encode($snack["Snackimage"]);
+            echo $encoded_image?>">
+            </label>
+
+
           </div>
 
           <?php
@@ -288,14 +292,16 @@
             foreach($games as $game){
               ?>
             <div class = "snacks__wrapper">
+            <input id = "<?php echo $game["GameName"]?>"  class=" input__check " name = "game[]" value = "<?php echo $game["GameID"] ?>" type="checkbox" <?php
+            if (isset($_GET[$game["GameID"]])){
+              echo "checked";
+            }?>>
+            <label class = "labelcheckbox" id = "<?php echo $game["GameName"]?>" for = "<?php echo $game["GameName"]?>">
             <label class="smallerlabel" for="name"><?php echo $game["GameName"]?></label>
             <img class = "gameimage" src = "data:image/jpeg;base64,<?php
             $encoded_image = base64_encode($game["GameImage"]);
             echo $encoded_image?>">
-            <input id = "game"  class=" input__check " name = "game[]" value = "<?php echo $game["GameID"] ?>" type="checkbox" <?php
-            if (isset($_GET[$game["GameID"]])){
-              echo "checked";
-            }?>>
+            </label>
           </div>
 
           <?php
@@ -361,14 +367,18 @@
             foreach($systems as $system){
               ?>
             <div class = "snacks__wrapper">
+
+
+            <input id = "<?php echo $system["SystemName"]?>"  class=" input__check " name = "system[]" value = "<?php echo $system["SystemID"] ?>" type="checkbox" <?php
+            if (isset($_GET[$system["SystemID"]])){
+              echo "checked";
+            }?>>
+             <label class = "labelcheckbox" id = "<?php echo $system["SystemName"]?>" for = "<?php echo $system["SystemName"]?>">
             <label class="smallerlabel" for="name"><?php echo $system["SystemName"]?></label>
             <img class = "gameimage" src = "data:image/jpeg;base64,<?php
             $encoded_image = base64_encode($system["SystemImage"]);
             echo $encoded_image?>">
-            <input id = "game"  class=" input__check " name = "system[]" value = "<?php echo $system["SystemID"] ?>" type="checkbox" <?php
-            if (isset($_GET[$system["SystemID"]])){
-              echo "checked";
-            }?>>
+            </label>
           </div>
 
           <?php

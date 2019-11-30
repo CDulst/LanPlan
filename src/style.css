@@ -58,11 +58,19 @@ html {
 .smallerlabel {
   font-size: 1rem;
   margin-bottom: .5rem;
+  border: none;
 }
 
 .input__check {
-margin: 1rem auto;
+  margin: 1rem auto;
+  display: none;
 }
+
+input[type=checkbox]:checked + .labelcheckbox {
+  display: inline-block;
+  border: white 1px solid;
+}
+
 
 .snacks__wrapper {
   display: flex;
