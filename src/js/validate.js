@@ -17,6 +17,9 @@
   const showValidationInfo = $field => {
     let message;
     let correct = false;
+
+    console.log('infoMessage', $field.dataset.infoMessage);
+
     if ($field.validity.valueMissing) {
       message = `The field is empty`;
       correct = false;
