@@ -28,6 +28,7 @@
 .snacks__wrapper {
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
 }
 
 .section__right {
@@ -88,6 +89,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.section__right__image {
+  width: 100%;
 }
 
 @media (--only-small-screen) {
