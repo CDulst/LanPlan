@@ -245,7 +245,7 @@
             <?php
             if (!empty($_GET["error"])){
               ?>
-              <p class="info infoerror">........</p>
+              <p class="info infoerror">please select atleast 1 item </p>
               <?php
             }
             ?>
@@ -266,6 +266,10 @@
       if (empty($_GET["edit"]) && !isset($_POST["return"])){
         if (!empty($_POST["snack"])){
           $_SESSION["snack"] = $snacks;
+        }
+        else
+        {
+          $_SESSION["snack"] = "";
         }
       }
   ?>
@@ -342,6 +346,10 @@
       if (empty($_GET["edit"]) && !isset($_POST["return"])){
         if (!empty($_POST["game"])){
           $_SESSION["game"] = $games;
+        }
+        else
+        {
+          $_SESSION["game"] = "";
         }
       }
   ?>
@@ -441,6 +449,10 @@
       if (!empty($_POST["system"])){
         $_SESSION["system"] = $systems;
       }
+      else
+      {
+        $_SESSION["system"] = "";
+      }
 
 
     ?>
@@ -487,6 +499,7 @@
     <div class = "detail__section--wrapper">
     <h3 class = "section__title"> Snacks </h3>
     <?php
+    if (!empty($_SESSION["snack"])){
     foreach ($_SESSION["snack"] as $snack){
       ?>
        <img class = "imagedata" src = "data:image/jpeg;base64,<?php
@@ -494,14 +507,22 @@
            ?>">
       <?php
     }
+    }
+    else
+    {
+      ?>
+        <p class = "section__para"> <?php echo "no snacks" ?></p>
+        <?php
+    }
     ?>
 
     </div>
 
     <form class="form" action="index.php?page=plan&flow=snacks<?php
+      if (!empty($_SESSION["snack"])){
     foreach ($_SESSION["snack"] as $snack){
       echo "&".$snack["Snackid"]."=true";
-    }?>" method = "POST">
+    }}?>" method = "POST">
     <input class="input__button" name = "return" type="submit" value="Edit">
     </form>
     </section>
@@ -509,21 +530,31 @@
     <div class = "detail__section--wrapper">
     <h3 class = "section__title"> Games </h3>
     <?php
-    foreach ($_SESSION["game"] as $game){
-      ?>
-       <img class = "imagedata" src = "data:image/jpeg;base64,<?php
-          echo $game["GameImage"]?>">
+    if (!empty($_SESSION["game"])){
+      foreach ($_SESSION["game"] as $game){
+        ?>
+         <img class = "imagedata" src = "data:image/jpeg;base64,<?php
+            echo $game["GameImage"]?>">
 
-      <?php
+        <?php
     }
-    ?>
+  }
+  else
+  {
+  ?>
+      <p class = "section__para"> <?php echo "no games" ?></p>
+      <?php
+  }
+  ?>
+
 
     </div>
 
     <form class="form" action="index.php?page=plan&flow=games<?php
+    if (!empty($_SESSION["game"])){
     foreach ( $_SESSION["game"] as $game){
       echo "&".$game["GameID"]."=true";
-    }?>" method = "POST">
+    }}?>" method = "POST">
     <input class="input__button" name = "return" type="submit" value="Edit">
     </form>
     </section>
@@ -532,21 +563,31 @@
     <div class = "detail__section--wrapper">
     <h3 class = "section__title"> Systems </h3>
     <?php
+     if (!empty($_SESSION["system"])){
     foreach ($_SESSION["system"] as $system){
       ?>
        <img class = "imagedata" src = "data:image/jpeg;base64,<?php
              echo $system["SystemImage"]?>">
 
       <?php
+        }
+    }
+    else
+    {
+    ?>
+        <p class = "section__para"> <?php echo "no systems" ?></p>
+        <?php
     }
     ?>
+
 
     </div>
 
     <form class="form" action="index.php?page=plan&flow=systems<?php
+    if (!empty($_SESSION["system"])){
     foreach ( $_SESSION["system"] as $system){
       echo "&".$system["SystemID"]."=true";
-    }?>" method = "POST">
+    }}?>" method = "POST">
     <input class="input__button" name = "return" type="submit" value="Edit">
     </form>
     </section>
@@ -558,6 +599,7 @@
     </article>
     <?php
     }
+
     if ($_GET["flow"] == "finished"){
 
     ?>

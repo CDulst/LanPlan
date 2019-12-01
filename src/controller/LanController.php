@@ -123,13 +123,16 @@ class LanController extends Controller {
       $SnacksID = rand(1,100000);
       $GamesID = rand(1,100000);
       $SystemsID = rand(1,100000);
-      foreach ($_SESSION["snack"] as $snack){
-        $snackdata = array(
-          'snacksid' => $SnacksID,
-          'snackid' => $snack["Snackid"]
-        );
-        $snackadded = $this->snacksDAO->insertSnacksid($snackdata);
+      if (!empty($_SESSION["snack"])){
+        foreach ($_SESSION["snack"] as $snack){
+          $snackdata = array(
+            'snacksid' => $SnacksID,
+            'snackid' => $snack["Snackid"]
+          );
+          $snackadded = $this->snacksDAO->insertSnacksid($snackdata);
+        }
       }
+      if (!empty($_SESSION["game"])){
       foreach ($_SESSION["game"] as $game){
         $gamedata = array(
           'gamesid' => $GamesID,
@@ -137,6 +140,8 @@ class LanController extends Controller {
         );
         $gameadded = $this->gamesDAO->insertGamesid($gamedata);
       }
+    }
+    if (!empty($_SESSION["system"])){
       foreach ($_SESSION["system"] as $system){
         $systemdata = array(
           'systemsid' => $SystemsID,
@@ -144,6 +149,7 @@ class LanController extends Controller {
         );
         $systemadded = $this->systemsDAO->insertSystemsid($systemdata);
       }
+    }
 
       $location = $_SESSION["street"]." ".$_SESSION["number"]." ".$_SESSION["postalnumber"]." ".$_SESSION["city"];
       $locationdata = array(
