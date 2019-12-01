@@ -144,7 +144,7 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    color: #2320b3;
+    color: var(--colorMain);
   }
 
   .number {

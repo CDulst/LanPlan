@@ -4,7 +4,7 @@
   text-align: center;
   align-items: flex-start;
   margin-top: 6rem;
-  color: white;
+  color: var(--colorLightest);
   font-weight: 700;
   font-size: var(--fontMediumBig);
   margin-bottom: var(--spacerBig);
@@ -19,7 +19,7 @@
   height: var(--spacerBig);
   text-align: center;
   background-image: linear-gradient(-90deg, #ebb6ec, #c56893);
-  color: #221fb1;
+  color: var(--colorMain);
 
   @media (--only-medium-screen) {
     margin-bottom: calc(var(--spacerBig) * 2);
@@ -30,7 +30,7 @@
     height: 3rem;
     text-align: center;
     background-image: linear-gradient(-90deg, #ebb6ec, #c56893);
-    color: #221fb1;
+    color: var(--colorMain);
     font-size: var(--fontMediumBig);
   }
 }
@@ -41,7 +41,7 @@
 
 input::placeholder {
   text-align: center;
-  color: #221fb1;
+  color: var(--colorMain);
   font-size: var(--fontMedium);
   font-weight: 100;
   opacity: .6;
@@ -49,7 +49,7 @@ input::placeholder {
 
 .smallerlabel {
   font-size: var(--fontRegular);
-  margin-bottom: calc(var(--spacerRegular) / 2);
+  margin-bottom: .5rem;
   border: none;
 }
 
@@ -60,7 +60,7 @@ input::placeholder {
 
 input[type=checkbox]:checked + .labelcheckbox {
   display: inline-block;
-  border: white 1px solid;
+  border: var(--colorLightest) 1px solid;
 }
 
 @media (--only-large-screen) {
@@ -71,10 +71,10 @@ input[type=checkbox]:checked + .labelcheckbox {
     text-align: center;
     align-items: center;
     margin-top: 10rem;
-    color: white;
+    color: var(--colorLightest);
     font-weight: 700;
     font-size: var(--fontBig);
-    margin-bottom: calc(var(--spacerBig) * 5);
+    margin-bottom: 10rem;
     width: 50%;
 
   }

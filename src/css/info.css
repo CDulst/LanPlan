@@ -9,7 +9,7 @@
 
 .feedback {
   display: none;
-  color: white;
+  color: var(--colorLightest);
   color: red;
 }
 

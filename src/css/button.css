@@ -1,5 +1,5 @@
 .add__lanparty {
-  color: white;
+  color: var(--colorLightest);
   display: flex;
   justify-content: center;
   margin-bottom: 5rem;
@@ -13,7 +13,7 @@
 }
 
 .gradientPLus {
-  background-color: white;
+  background-color: var(--colorLightest);
 }
 
 .add__lanparty__image {

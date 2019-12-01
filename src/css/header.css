@@ -64,7 +64,7 @@
   font-size: var(--fontMedium);
   margin-left: 1.5rem;
   margin-top: 3.5rem;
-  color: #f1c3fb;
+  color: var(--colorSecondary);
 
   @media (--only-large-screen) {
     margin-left: 0;

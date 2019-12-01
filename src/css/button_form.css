@@ -4,9 +4,9 @@
   border-radius: 3rem;
   width: 10rem;
   height: var(--spacerBig);
-  margin: 1rem;
+  margin: var(--spacerRegular);
   margin-bottom: calc(var(--spacerBig) * 2);
-  color: #221fb1;
+  color: var(--colorMain);
   font-weight: 700;
   font-size: var(--fontMedium);
   cursor: pointer;
