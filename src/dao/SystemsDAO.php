@@ -61,20 +61,17 @@ class SystemsDAO extends DAO {
     return false;
   }
 
-  public function insertSnack($data) {
-    $errors = $this->validate( $data );
-    if (empty($errors)) {
-      $sql = "INSERT INTO `LanParties` (`Name`, `LocationID`, `Date`) VALUES (:naam, :locationid, :datum)";
-      $stmt = $this->pdo->prepare($sql);
-      $stmt->bindValue(':naam', $data['name']);
-      $stmt->bindValue(':locationid', $data['locationID']);
-      $stmt->bindValue(':datum', $data['date']);
-      if ($stmt->execute()) {
-        return $this->selectById($this->pdo->lastInsertId());
-      }
+  public function insertSystem($data) {
+
+    $sql = "INSERT INTO `LanSystems` (`Systemname`,`Systemimage`) VALUES (:systemname, :systemimage)";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':systemname', $data['systemname']);
+    $stmt->bindValue(':systemimage', $data['systemimage']);
+    if ($stmt->execute()) {
+      return $this->selectById($this->pdo->lastInsertId());
     }
-    return false;
   }
+
 
   public function validate( $data ){
     $errors = [];

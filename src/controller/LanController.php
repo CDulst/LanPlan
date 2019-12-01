@@ -219,5 +219,82 @@ class LanController extends Controller {
 
 
 }
+public function add() {
+  if ($_GET["flow"] == "snacks"){
+    if (!empty($_POST["name"])){
+      $fileinfo = @getimagesize($_FILES["image"]["tmp_name"]);
+      $width = $fileinfo[0];
+      $height = $fileinfo[1];
+      $imgData = base64_encode(file_get_contents(addslashes($_FILES["image"]["tmp_name"])));
+      if ($height > 120 || $width > 120 ){
+        $error = "please make sure the image is 120X120";
+        $this->set('error', $error);
+      }
+      else
+      {
+        $snackdata = array(
+          'snackname' => $_POST["name"],
+          'snackimage' => $imgData
+        );
+        $snackadded = $this->snacksDAO->insertSnack($snackdata);
+        header('Location: index.php?page=plan&flow=snacks');
+        exit;
+
+      }
+    }
+
+  }
+  if ($_GET["flow"] == "games"){
+    if (!empty($_POST["name"])){
+      $fileinfo = @getimagesize($_FILES["image"]["tmp_name"]);
+      $width = $fileinfo[0];
+      $height = $fileinfo[1];
+      $imgData = base64_encode(file_get_contents(addslashes($_FILES["image"]["tmp_name"])));
+      if ($height > 120 || $width > 120 ){
+        $error = "please make sure the image is 120X120";
+        $this->set('error', $error);
+      }
+      else
+      {
+        $gamedata = array(
+          'gamename' => $_POST["name"],
+          'gameimage' => $imgData
+        );
+        $gameadded = $this->gamesDAO->insertGame($gamedata);
+        header('Location: index.php?page=plan&flow=games');
+        exit;
+
+      }
+    }
+
+  }
+  if ($_GET["flow"] == "systems"){
+    if (!empty($_POST["name"])){
+      $fileinfo = @getimagesize($_FILES["image"]["tmp_name"]);
+      $width = $fileinfo[0];
+      $height = $fileinfo[1];
+      $imgData = base64_encode(file_get_contents(addslashes($_FILES["image"]["tmp_name"])));
+      if ($height > 120 || $width > 120 ){
+        $error = "please make sure the image is 120X120";
+        $this->set('error', $error);
+      }
+      else
+      {
+        $systemdata = array(
+          'systemname' => $_POST["name"],
+          'systemimage' => $imgData
+        );
+        $gameadded = $this->systemsDAO->insertSystem($systemdata);
+        header('Location: index.php?page=plan&flow=systems');
+        exit;
+
+      }
+    }
+
+  }
+
+
+
 }
 
+}

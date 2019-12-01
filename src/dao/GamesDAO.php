@@ -61,20 +61,16 @@ class GamesDAO extends DAO {
     return false;
   }
 
-  public function insertSnack($data) {
-    $errors = $this->validate( $data );
-    if (empty($errors)) {
-      $sql = "INSERT INTO `LanParties` (`Name`, `LocationID`, `Date`) VALUES (:naam, :locationid, :datum)";
+  public function insertGame($data) {
+      $sql = "INSERT INTO `LanGames` (`GameName`, `GameImage`) VALUES (:gamename, :gameimage)";
       $stmt = $this->pdo->prepare($sql);
-      $stmt->bindValue(':naam', $data['name']);
-      $stmt->bindValue(':locationid', $data['locationID']);
-      $stmt->bindValue(':datum', $data['date']);
+      $stmt->bindValue(':gamename', $data['gamename']);
+      $stmt->bindValue(':gameimage', $data['gameimage']);
       if ($stmt->execute()) {
         return $this->selectById($this->pdo->lastInsertId());
       }
     }
-    return false;
-  }
+
 
   public function validate( $data ){
     $errors = [];

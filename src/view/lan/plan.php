@@ -125,6 +125,9 @@
         <form class="form" action=<?php if (isset($_POST["edit"])){
               echo "index.php?page=detail&id=".$_GET["id"];
             }
+            else if (isset($_GET["street"])){
+              echo "index.php?page=plan&flow=overview";
+            }
             else{
               echo "index.php?page=plan&flow=snacks";
             }
@@ -221,13 +224,15 @@
             }?>>
             <label class = "labelcheckbox" id = "<?php echo $snack["Snackname"]?>" for = "<?php echo $snack["Snackname"]?>">
             <label class="smallerlabel" for="name"><?php echo $snack["Snackname"]?></label>
-            <img class = "datasnacks imagedata"  src = "data:image/jpeg;base64,<?php
-            $encoded_image = base64_encode($snack["Snackimage"]);
-            echo $encoded_image?>">
+            <img class = "datasnacks imagedata"  src = "data:image/png;base64,<?php
+            echo $snack["Snackimage"]?>
+            ">
             </label>
 
 
+
           </div>
+
 
           <?php
             }
@@ -235,6 +240,8 @@
             </div>
 
           </div>
+          <p class = "addpara"><a class = "addpara__link" href = "index.php?page=add&flow=snacks"> Can't find the snack your looking for ? </a></p>
+
 
             <?php
             if (!empty($_GET["error"])){
@@ -298,17 +305,18 @@
             }?>>
             <label class = "labelcheckbox" id = "<?php echo $game["GameName"]?>" for = "<?php echo $game["GameName"]?>">
             <label class="smallerlabel" for="name"><?php echo $game["GameName"]?></label>
-            <img class = "gameimage" src = "data:image/jpeg;base64,<?php
-            $encoded_image = base64_encode($game["GameImage"]);
-            echo $encoded_image?>">
+            <img class = "gameimage imagedata" src = "data:image/jpeg;base64,<?php
+             echo $game["GameImage"]?>">
+
             </label>
           </div>
 
           <?php
             }
             ?>
-            </div>
 
+            </div>
+            <p class = "addpara"><a class = "addpara__link" href = "index.php?page=add&flow=games"> Can't find the game your looking for ? </a></p>
           </div>
 
             <?php
@@ -356,10 +364,10 @@
             ?> method = "POST">
             <div class="FormName__wrapper">
             <label class="labelForm" for="name"><?php if (isset($_POST["edit"]) || isset($_POST["return"])){
-              echo "Select Systems for the lan-party";
+              echo "select systems for the lan-party";
             }
             else{
-              echo "Select System for the lan-party ";
+              echo "select Systems for the lan-party ";
             }
             ?> </label>
             <div class = "snacks__wrappers">
@@ -375,9 +383,9 @@
             }?>>
              <label class = "labelcheckbox" id = "<?php echo $system["SystemName"]?>" for = "<?php echo $system["SystemName"]?>">
             <label class="smallerlabel" for="name"><?php echo $system["SystemName"]?></label>
-            <img class = "gameimage" src = "data:image/jpeg;base64,<?php
-            $encoded_image = base64_encode($system["SystemImage"]);
-            echo $encoded_image?>">
+            <img class = "gameimage imagedata" src = "data:image/jpeg;base64,<?php
+           echo $system["SystemImage"];
+            ?>">
             </label>
           </div>
 
@@ -387,7 +395,7 @@
             </div>
 
           </div>
-
+          <p class = "addpara"><a class = "addpara__link" href = "index.php?page=add&flow=systems"> Can't find the system your looking for ? </a></p>
             <?php
             if (!empty($_GET["error"])){
               ?>
@@ -483,8 +491,8 @@
     foreach ($_SESSION["snack"] as $snack){
       ?>
        <img src = "data:image/jpeg;base64,<?php
-            $encoded_image = base64_encode($snack["Snackimage"]);
-            echo $encoded_image?>">
+           echo $snack["Snackimage"];
+           ?>">
       <?php
     }
     ?>
@@ -505,8 +513,8 @@
     foreach ($_SESSION["game"] as $game){
       ?>
        <img src = "data:image/jpeg;base64,<?php
-            $encoded_image = base64_encode($game["GameImage"]);
-            echo $encoded_image?>">
+          echo $game["GameImage"]?>">
+
       <?php
     }
     ?>
@@ -528,8 +536,8 @@
     foreach ($_SESSION["system"] as $system){
       ?>
        <img src = "data:image/jpeg;base64,<?php
-            $encoded_image = base64_encode($system["SystemImage"]);
-            echo $encoded_image?>">
+             echo $system["SystemImage"]?>">
+
       <?php
     }
     ?>

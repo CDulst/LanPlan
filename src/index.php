@@ -17,6 +17,11 @@ $routes = array(
   'plan' => array(
     'controller' => 'Lan',
     'action' => 'plan'
+  ),
+
+  'add' => array(
+    'controller' => 'Lan',
+    'action' => 'add'
   )
 
 );

@@ -62,33 +62,18 @@ class SnacksDAO extends DAO {
   }
 
   public function insertSnack($data) {
-    $errors = $this->validate( $data );
-    if (empty($errors)) {
-      $sql = "INSERT INTO `LanParties` (`Name`, `LocationID`, `Date`) VALUES (:naam, :locationid, :datum)";
+
+      $sql = "INSERT INTO `LanSnacks` (`Snackname`,`Snackimage`) VALUES (:snackname, :snackimage)";
       $stmt = $this->pdo->prepare($sql);
-      $stmt->bindValue(':naam', $data['name']);
-      $stmt->bindValue(':locationid', $data['locationID']);
-      $stmt->bindValue(':datum', $data['date']);
+      $stmt->bindValue(':snackname', $data['snackname']);
+      $stmt->bindValue(':snackimage', $data['snackimage']);
       if ($stmt->execute()) {
         return $this->selectById($this->pdo->lastInsertId());
       }
     }
-    return false;
-  }
 
-  public function validate( $data ){
-    $errors = [];
-    if (!isset($data['name'])) {
-      $errors['Name'] = 'This field is required';
-    }
-    if (!isset($data['locationID'])) {
-      $errors['LocationID'] = 'This field is required';
-    }
-    if (!isset($data['date'])) {
-      $errors['Date'] =  'This field is required';
-    }
-    return $errors;
-  }
+
+
 
 }
 

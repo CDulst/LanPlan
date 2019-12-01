@@ -44,6 +44,14 @@ html {
 .gameimage {
 }
 
+.addpara__link{
+  color:white;
+}
+
+.imagedata{
+  border-radius:5rem;
+}
+
 .snacks__wrappers {
 
   height: 25rem;
@@ -53,6 +61,10 @@ html {
   width: 100%;
   margin-top: 2rem;
   justify-content: center;
+}
+
+.addpara{
+font-size:1rem;
 }
 
 .smallerlabel {
