@@ -158,12 +158,12 @@
   .dashboard__date {
 
     margin-bottom: .5rem;
-    font-size: 1.2rem;
+    font-size: var(--fontMedium);
 
   }
 
   .dashboard__location {
-    font-size: 1.4rem;
+    font-size: var(--fontMediumBig);
   }
 
   .dashboard {

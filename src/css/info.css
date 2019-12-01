@@ -1,5 +1,5 @@
 .info {
-  font-size: 1rem;
+  font-size: var(--fontRegular);
   /*display flex to make visible*/
   align-items: center;
   justify-content: center;
