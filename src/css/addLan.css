@@ -67,8 +67,11 @@
 }
 
 .section__button {
-  width: 465px;
-  margin: 2rem auto;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 6rem;
 }
 
 .return__button {

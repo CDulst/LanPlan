@@ -3,14 +3,18 @@
   /*display flex to make visible*/
   align-items: center;
   justify-content: center;
-  color:red;
+  color: red;
 
 }
 
 .feedback {
-  display:none;
-  color:white;
-  color:red;
+  display: none;
+  color: white;
+  color: red;
+}
+
+.remove {
+  background-image: linear-gradient(red, red);
 }
 
 /*.info::after {
