@@ -28,7 +28,8 @@
 .snacks__wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
+
 }
 
 .section__right {
