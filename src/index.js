@@ -150,8 +150,8 @@ require('./js/validate.js');
         Accept: 'application/json'
       })
     });
-    const activiteiten = await response.json();
-    console.log(activiteiten);
+    const dataresponse = await response.json();
+    console.log(dataresponse);
   };
   const handlechange = e => {
     submitWithJS();

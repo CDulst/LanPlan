@@ -65,10 +65,6 @@ class LanController extends Controller {
 
    if ($_GET["flow"] == "snacks"){
     $snacks = $this->snacksDAO->selectAll();
-    if (isset($_POST["filtersnack"])){
-    $snacks = $this->snacksDAO->selectByName($_POST["filtersnack"]);
-
-    }
     if ($_SERVER['HTTP_ACCEPT'] == 'application/json') {
       echo json_encode($snacks);
       exit();
