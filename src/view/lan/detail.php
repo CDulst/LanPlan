@@ -41,7 +41,7 @@
     foreach ($snacks as $snack){
       ?>
        <img class = "imagedata" src = "data:image/jpeg;base64,<?php
-            echo $snack["Snackimage"]?>">
+            echo $snack["Snackimage"]?>" alt="snack-image">
 
       <?php
     }
@@ -64,7 +64,7 @@
     foreach ($games as $game){
       ?>
        <img class = "imagedata" src = "data:image/jpeg;base64,<?php
-            echo $game["GameImage"]?>">
+            echo $game["GameImage"]?>" alt="game-image">
 
       <?php
     }
@@ -87,7 +87,7 @@
     foreach ($systems as $system){
       ?>
        <img class = "imagedata" src = "data:image/jpeg;base64,<?php
-            echo $system["SystemImage"]?>">
+            echo $system["SystemImage"]?>" alt="system-image">
 
       <?php
     }

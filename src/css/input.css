@@ -4,34 +4,34 @@
   text-align: center;
   align-items: flex-start;
   margin-top: 6rem;
-  color: white;
+  color: var(--colorLightest);
   font-weight: 700;
-  font-size: 1.6rem;
-  margin-bottom: 2rem;
+  font-size: var(--fontMediumBig);
+  margin-bottom: var(--spacerBig);
 }
 
 .input {
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  border-radius: 1rem;
+  margin-top: var(--spacerRegular);
+  margin-bottom: var(--spacerBig);
+  border-radius: var(--spacerRegular);
   border: none;
   width: 15rem;
-  height: 2rem;
+  height: var(--spacerBig);
   text-align: center;
   background-image: linear-gradient(-90deg, #ebb6ec, #c56893);
-  color: #221fb1;
+  color: var(--colorMain);
 
   @media (--only-medium-screen) {
-    margin-bottom: 4rem;
-    margin-top: 1rem;
+    margin-bottom: calc(var(--spacerBig) * 2);
+    margin-top: var(--spacerRegular);
     border-radius: 3rem;
     border: none;
     width: 25rem;
     height: 3rem;
     text-align: center;
     background-image: linear-gradient(-90deg, #ebb6ec, #c56893);
-    color: #221fb1;
-    font-size: 1.5rem;
+    color: var(--colorMain);
+    font-size: var(--fontMediumBig);
   }
 }
 
@@ -41,26 +41,35 @@
 
 input::placeholder {
   text-align: center;
-  color: #221fb1;
-  font-size: 1.3rem;
+  color: var(--colorMain);
+  font-size: var(--fontMedium);
   font-weight: 100;
   opacity: .6;
 }
 
+.labelForm {
+  margin-bottom: var(--spacerBig);
+}
+
+.input__image {
+  margin-bottom: var(--spacerBig);
+
+}
+
 .smallerlabel {
-  font-size: 1rem;
+  font-size: var(--fontRegular);
   margin-bottom: .5rem;
   border: none;
 }
 
 .input__check {
-  margin: 1rem auto;
+  margin: var(--spacerRegular) auto;
   display: none;
 }
 
 input[type=checkbox]:checked + .labelcheckbox {
   display: inline-block;
-  border: white 1px solid;
+  border: var(--colorLightest) 1px solid;
 }
 
 @media (--only-large-screen) {
@@ -71,15 +80,15 @@ input[type=checkbox]:checked + .labelcheckbox {
     text-align: center;
     align-items: center;
     margin-top: 10rem;
-    color: white;
+    color: var(--colorLightest);
     font-weight: 700;
-    font-size: 2rem;
+    font-size: var(--fontBig);
     margin-bottom: 10rem;
     width: 50%;
 
   }
 
   .labelForm {
-    margin-bottom: 2rem;
+    margin-bottom: var(--spacerBig);
   }
 }

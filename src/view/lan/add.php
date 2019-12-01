@@ -50,7 +50,7 @@
               echo $error;
             }
             ?></p>
-            <input id = "name" type="file" name = "image" accept = ".png">
+            <input class='input__image' id = "name" type="file" name = "image" accept = ".png">
             </div>
 
             <input class="input__button" type="submit" value="<?php if ($_GET["flow"] == "snacks"){
@@ -62,6 +62,6 @@
             if ($_GET["flow"] == "systems"){
               echo "add system";
             }?>">
-            <input class= "input__button" type="submit" value="return"> 
+            <input class= "input__button" type="submit" value="return">
         </form>
     </section>

@@ -3,12 +3,12 @@
   border: none;
   border-radius: 3rem;
   width: 10rem;
-  height: 2rem;
-  margin: 1rem;
-  margin-bottom: 4rem;
-  color: #221fb1;
+  height: var(--spacerBig);
+  margin: var(--spacerRegular);
+  margin-bottom: calc(var(--spacerBig) * 2);
+  color: var(--colorMain);
   font-weight: 700;
-  font-size: 1.3rem;
+  font-size: var(--fontMedium);
   cursor: pointer;
   transition: all 200ms ease-in-out;
 }

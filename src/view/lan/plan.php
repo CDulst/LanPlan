@@ -225,7 +225,7 @@
             <label class="smallerlabel" for="name"><?php echo $snack["Snackname"]?></label>
             <img class = "datasnacks imagedata"  src = "data:image/png;base64,<?php
             echo $snack["Snackimage"]?>
-            ">
+            " alt="snack-image">
             </label>
 
 
@@ -309,7 +309,7 @@
             <label class = "labelcheckbox" id = "<?php echo $game["GameName"]?>" for = "<?php echo $game["GameName"]?>">
             <label class="smallerlabel" for="name"><?php echo $game["GameName"]?></label>
             <img class = "gameimage imagedata" src = "data:image/jpeg;base64,<?php
-             echo $game["GameImage"]?>">
+             echo $game["GameImage"]?>" alt="game-image">
 
             </label>
           </div>
@@ -392,7 +392,7 @@
             <label class="smallerlabel" for="name"><?php echo $system["SystemName"]?></label>
             <img class = "gameimage imagedata" src = "data:image/jpeg;base64,<?php
            echo $system["SystemImage"];
-            ?>">
+            ?>" alt="system-image">
             </label>
           </div>
 
@@ -504,7 +504,7 @@
       ?>
        <img class = "imagedata" src = "data:image/jpeg;base64,<?php
            echo $snack["Snackimage"];
-           ?>">
+           ?>" alt="snack-image">
       <?php
     }
     }
@@ -534,7 +534,7 @@
       foreach ($_SESSION["game"] as $game){
         ?>
          <img class = "imagedata" src = "data:image/jpeg;base64,<?php
-            echo $game["GameImage"]?>">
+            echo $game["GameImage"]?>" alt="game-image">
 
         <?php
     }
@@ -567,7 +567,7 @@
     foreach ($_SESSION["system"] as $system){
       ?>
        <img class = "imagedata" src = "data:image/jpeg;base64,<?php
-             echo $system["SystemImage"]?>">
+             echo $system["SystemImage"]?>" alt="system-image">
 
       <?php
         }
