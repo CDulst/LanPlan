@@ -1,11 +1,7 @@
 require('./style.css');
 require('./js/validate.js');
 {
-  const $ul = '';
-  const $months = '';
-  const $days = '';
-  const $hours = '';
-  const $minutes = '';
+
 
   const $todosList = document.getElementById(`todosList`),
     $insertTodoForm = document.getElementById(`insertTodoForm`),
