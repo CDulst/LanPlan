@@ -44,11 +44,10 @@ class MembersDAO extends DAO {
 
 
   public function insertMember($data) {
-      $sql = "INSERT INTO `LanMembers` (`MemberName`, `MemberWW`, `MemberImage` ) VALUES (:membername, :memberww, :memberimage)";
+      $sql = "INSERT INTO `LanMembers` (`MemberName`, `MemberWW`) VALUES (:membername, :memberww)";
       $stmt = $this->pdo->prepare($sql);
       $stmt->bindValue(':membername', $data['membername']);
       $stmt->bindValue(':memberww', $data['memberww']);
-      $stmt->bindValue(':memberimage', $data['memberimage']);
       if ($stmt->execute()) {
         return $this->selectById($this->pdo->lastInsertId());
       }

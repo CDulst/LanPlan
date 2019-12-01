@@ -50,6 +50,8 @@ class LanController extends Controller {
 
     if (isset($_GET["logout"])){
       session_destroy();
+      header('Location: index.php');
+      exit();
     }
     if (!empty($_SESSION["member"])){
       $landata = array(
@@ -393,14 +395,7 @@ if (isset($_POST["name"])){
     $error = "Name is already in use";
     $this->set('errorname', $error);
   }
-  $fileinfo = @getimagesize($_FILES["image"]["tmp_name"]);
-  $width = $fileinfo[0];
-  $height = $fileinfo[1];
-  $imgData = base64_encode(file_get_contents(addslashes($_FILES["image"]["tmp_name"])));
-  if ($height > 120 || $width > 120 ){
-    $error = "please make sure the image is 120X120";
-    $this->set('errorimg', $error);
-  }
+
   if ($_POST["password"] !== $_POST["passwordrepeat"]){
     $error = "Password doesn't match";
     $this->set('errorpass', $error);
@@ -410,7 +405,6 @@ if (isset($_POST["name"])){
     $memberdata = array(
       'membername' => $_POST["name"],
       'memberww' => $_POST["password"],
-      'memberimage' => $imgData
     );
     $memberadded = $this->membersDAO->insertMember($memberdata);
     header('Location: index.php');

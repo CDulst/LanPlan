@@ -22,12 +22,11 @@
       ?>
 
     <header class="header">
-
         <a class="logo__link" href="index.php"><h1 class="header__title">Lan plan</h1></a>
         <?php
-        if (isset($_SESSION["member"]) && empty($_GET["page"])){
+        if (isset($_SESSION["member"])){
           ?>
-           <form action = "index.php">
+        <form action = "index.php">
         <input type = "submit" name = "logout" value = "logout">
         <form>
           <?php
