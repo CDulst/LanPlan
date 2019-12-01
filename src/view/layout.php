@@ -28,7 +28,7 @@
           ?>
         <form action = "index.php">
         <input type = "submit" name = "logout" value = "logout">
-        <form>
+        </form>
           <?php
         }
         ?>
