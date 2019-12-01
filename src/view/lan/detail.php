@@ -40,9 +40,9 @@
     <?php
     foreach ($snacks as $snack){
       ?>
-       <img src = "data:image/jpeg;base64,<?php
-            $encoded_image = base64_encode($snack["Snackimage"]);
-            echo $encoded_image?>">
+       <img class = "imagedata" src = "data:image/jpeg;base64,<?php
+            echo $snack["Snackimage"]?>">
+
       <?php
     }
     ?>
@@ -56,6 +56,53 @@
     <input class="input__button" name = "return" type="submit" value="Edit">
     </form>
     </section>
+
+    <section class = "detail__section">
+    <div class = "detail__section--wrapper">
+    <h3 class = "section__title"> Games </h3>
+    <?php
+    foreach ($games as $game){
+      ?>
+       <img class = "imagedata" src = "data:image/jpeg;base64,<?php
+            echo $game["GameImage"]?>">
+
+      <?php
+    }
+    ?>
+
+    </div>
+
+    <form class="form" action="index.php?page=plan&flow=games&edit=<?php echo $lan["GamesID"] ?>&id=<?php echo $_GET["id"];
+    foreach ($games as $game){
+      echo "&".$game["GameID"]."=true";
+    }?>" method = "POST">
+    <input class="input__button" name = "return" type="submit" value="Edit">
+    </form>
+    </section>
+
+    <section class = "detail__section">
+    <div class = "detail__section--wrapper">
+    <h3 class = "section__title"> Systems </h3>
+    <?php
+    foreach ($systems as $system){
+      ?>
+       <img class = "imagedata" src = "data:image/jpeg;base64,<?php
+            echo $system["SystemImage"]?>">
+
+      <?php
+    }
+    ?>
+
+    </div>
+
+    <form class="form" action="index.php?page=plan&flow=systems&edit=<?php echo $lan["SystemsID"] ?>&id=<?php echo $_GET["id"];
+    foreach ($systems as $system){
+      echo "&".$system["SystemID"]."=true";
+    }?>" method = "POST">
+    <input class="input__button" name = "return" type="submit" value="Edit">
+    </form>
+    </section>
+
 
   </div>
     </article>

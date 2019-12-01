@@ -31,7 +31,7 @@ class GamesDAO extends DAO {
 
 
   public function delete($id){
-    $sql = "DELETE FROM `Lanparty_LanGames` WHERE `SnacksID` = :id";
+    $sql = "DELETE FROM `Lanparty_LanGames` WHERE `GamesID` = :id";
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindValue(':id', $id);
     return $stmt->execute();

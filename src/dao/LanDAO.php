@@ -37,6 +37,12 @@ class LanDAO extends DAO {
     if ($toUpdate == "SnacksID"){
       $sql = "UPDATE `LanParties` SET `SnacksID` = :valu WHERE PartyID = :id";
     }
+    if ($toUpdate == "GamesID"){
+      $sql = "UPDATE `LanParties` SET `GamesID` = :valu WHERE PartyID = :id";
+    }
+    if ($toUpdate == "SystemsID"){
+      $sql = "UPDATE `LanParties` SET `SystemsID` = :valu WHERE PartyID = :id";
+    }
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindValue(':valu', $value);
     $stmt->bindValue(':id', $_GET["id"]);

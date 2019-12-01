@@ -31,7 +31,7 @@ class SystemsDAO extends DAO {
 
 
   public function delete($id){
-    $sql = "DELETE FROM `Lanparty_LanSystems` WHERE `SnacksID` = :id";
+    $sql = "DELETE FROM `Lanparty_LanSystems` WHERE `SystemsID` = :id";
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindValue(':id', $id);
     return $stmt->execute();

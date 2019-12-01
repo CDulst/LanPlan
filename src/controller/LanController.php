@@ -193,6 +193,37 @@ class LanController extends Controller {
       $value = $SnacksID;
       $lanupdate= $this->lanDAO->updateLan($toUpdate,$value);
       }
+    }
+
+      if (isset($_POST["game"])){
+        $delete = $this->gamesDAO->delete($_GET["edit"]);
+        $GamesID = rand(1,100000);
+        foreach ($_POST["game"] as $game){
+          $gamedata = array(
+            'gamesid' => $GamesID,
+            'gameid' => $game
+          );
+          $gameadded = $this->gamesDAO->insertGamesid($gamedata);
+        $toUpdate = "GamesID";
+        $value = $GamesID;
+        $lanupdate= $this->lanDAO->updateLan($toUpdate,$value);
+        }
+      }
+
+
+        if (isset($_POST["system"])){
+          $delete = $this->systemsDAO->delete($_GET["edit"]);
+          $SystemsID = rand(1,100000);
+          foreach ($_POST["system"] as $system){
+            $systemdata = array(
+              'systemsid' => $SystemsID,
+              'systemid' => $system
+            );
+            $systemadded = $this->systemsDAO->insertSystemsid($systemdata);
+          $toUpdate = "SystemsID";
+          $value = $SystemsID;
+          $lanupdate= $this->lanDAO->updateLan($toUpdate,$value);
+          }
 
     }
     $lan = $this->lanDAO->selectById($_GET["id"]);
@@ -215,6 +246,22 @@ class LanController extends Controller {
       array_push($snacksarray,$snack);
     }
     $this->set('snacks', $snacksarray);
+
+    $gameid = $this->gamesDAO->selectSnacksById($lan["GamesID"]);
+    $gamesarray = array();
+    foreach ($gameid as $game){
+      $games = $this->gamesDAO->selectById($game["GameID"]);
+      array_push($gamesarray,$games);
+    }
+    $this->set('games', $gamesarray);
+
+    $systemsid = $this->systemsDAO->selectSnacksById($lan["SystemsID"]);
+    $systemsarray = array();
+    foreach ($systemsid as $system){
+      $systems = $this->systemsDAO->selectById($system["SystemID"]);
+      array_push($systemsarray,$systems);
+    }
+    $this->set('systems', $systemsarray);
 
 
 

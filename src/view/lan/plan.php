@@ -490,7 +490,7 @@
     <?php
     foreach ($_SESSION["snack"] as $snack){
       ?>
-       <img src = "data:image/jpeg;base64,<?php
+       <img class = "imagedata" src = "data:image/jpeg;base64,<?php
            echo $snack["Snackimage"];
            ?>">
       <?php
@@ -512,7 +512,7 @@
     <?php
     foreach ($_SESSION["game"] as $game){
       ?>
-       <img src = "data:image/jpeg;base64,<?php
+       <img class = "imagedata" src = "data:image/jpeg;base64,<?php
           echo $game["GameImage"]?>">
 
       <?php
@@ -535,7 +535,7 @@
     <?php
     foreach ($_SESSION["system"] as $system){
       ?>
-       <img src = "data:image/jpeg;base64,<?php
+       <img class = "imagedata" src = "data:image/jpeg;base64,<?php
              echo $system["SystemImage"]?>">
 
       <?php
