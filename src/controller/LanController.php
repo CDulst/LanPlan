@@ -24,12 +24,7 @@ class LanController extends Controller {
 
   public function index() {
 
-    /*if (!empty($_POST['action'])) {
-      if ($_POST['action'] == 'insertTodo') {
-        $this->handleInsertTodo();
-      }
-    }
-    */
+
 
     $lans= $this->lanDAO->selectAll();
     $locations = $this->locationDAO->selectAll();
@@ -180,6 +175,13 @@ class LanController extends Controller {
 
 
   public function detail(){
+
+    if (isset($_GET["delete"])){
+      $delete = $this->lanDAO->delete($_GET["id"]);
+      header('Location: index.php');
+      exit;
+    }
+
     if (isset($_POST["name"])){
       $toUpdate = "Name";
       $value = $_POST["name"];

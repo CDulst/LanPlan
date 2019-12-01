@@ -107,7 +107,7 @@
   </div>
     </article>
     <section class = "section__button">
-    <form class="form" action="index.php" method = "POST">
+    <form class="form" action="index.php?page=detail&id=<?php echo $_GET["id"] ?>&delete=true" method = "POST">
     <input class="input__button remove" name = "remove" type="submit" value="Remove">
     <input class="input__button" name = "return" type="submit" value="Return">
     </form>
