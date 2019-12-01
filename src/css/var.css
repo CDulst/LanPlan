@@ -1,0 +1,26 @@
+:root {
+  --colorLightest: white;
+  --colorText: white;
+  --colorTime: #2320b3;
+  --colorMain: #2320b3;
+  --colorSecondary: #ebb6ec;
+  --colorGray: #fafafa;
+  --colorGrayDark: #f1c3fb;
+  --spacerSmall: .75rem; /* 12px */
+  --spacerRegular: 1rem; /* 16px */
+  --spacerBig: 1.88rem; /* 30px */
+  --fontSmall: .75rem; /* 12px */
+  --fontRegular: 1.13rem; /* 18px */
+  --fontMedium: 1.25rem; /* 20px */
+  --fontMediumBig: 1.5rem;
+  --fontBig: 1.75rem; /* 28px */
+  --fontTitle: 2.3rem;
+  --buttonFont: 1.3rem;
+  --font: 'forma-djr-display', sans-serif;
+  --fontWeightRegular: 300;
+  --fontWeightBold: 700;
+}
+
+@custom-media --only-small-screen (width <= 465px);
+@custom-media --only-medium-screen (width >= 768px);
+@custom-media --only-large-screen (width >= 1200px);

@@ -11,10 +11,26 @@
   text-align: center;
 }
 
-.emptyStateImage {
-
+.section__right {
+  display: none;
 }
 
 .emptyStateText {
   margin-top: 1rem;
+}
+
+@media (--only-large-screen) {
+
+  .section__right {
+    float: right;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40rem;
+  }
+
+  .section__right__image {
+    width: 35rem;
+  }
 }

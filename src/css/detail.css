@@ -1,0 +1,42 @@
+.snacks__wrapper {
+  margin-bottom: 1rem;
+  padding: 0 1rem;
+  width: 8rem;
+
+}
+
+.detail__wrapper {
+
+  overflow: scroll;
+  height: 30rem;
+
+}
+
+.detail {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  @media (--only-medium-screen) {
+    width: 100%;
+
+    @media (--only-large-screen) {
+      width: 50%;
+      margin-left: 0;
+    }
+  }
+}
+
+.detail__section {
+  display: flex;
+  justify-content: space-between;
+  width: 30rem;
+  border-bottom: 3px white solid;
+  margin-bottom: 3rem;
+  padding-bottom: 3rem;
+}
+
+::-webkit-scrollbar {
+  background: transparent /* make scrollbar transparent */
+}
