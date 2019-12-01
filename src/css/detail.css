@@ -79,7 +79,3 @@
     padding-bottom: 3rem;
   }
 }
-
-::-webkit-scrollbar {
-  background: transparent /* make scrollbar transparent */
-}
