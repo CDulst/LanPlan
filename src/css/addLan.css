@@ -67,7 +67,7 @@
 }
 
 .section__button {
-  width: 50%;
+  width: 100%;
   display: flex;
   justify-content: center;
   margin-top: 2rem;
@@ -95,13 +95,13 @@
   .section__seperator {
     width: 50%;
   }
-
-  .section__button {
-    width: 70%;
-  }
 }
 
 @media (--only-large-screen) {
+
+  .section__button {
+    width: 50%;
+  }
 
   .section__right {
     float: right;
