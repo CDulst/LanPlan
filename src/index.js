@@ -13,7 +13,7 @@ require('./js/validate.js');
     });
 
     console.log('test');
-    deletepopup();
+
     checkflow();
     setInterval(function() {
       timer();
@@ -157,6 +157,7 @@ require('./js/validate.js');
   const handlechange = e => {
     submitWithJS();
   };
+
 
   const checkflow = () => {
     const url = window.location.search.slice(1).split(`&`);

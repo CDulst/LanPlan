@@ -6,6 +6,7 @@ require_once __DIR__ . '/../dao/LocationDAO.php';
 require_once __DIR__ . '/../dao/SnacksDAO.php';
 require_once __DIR__ . '/../dao/GamesDAO.php';
 require_once __DIR__ . '/../dao/SystemsDAO.php';
+require_once __DIR__ . '/../dao/MembersDAO.php';
 
 
 class LanController extends Controller {
@@ -19,18 +20,47 @@ class LanController extends Controller {
     $this->snacksDAO = new  SnacksDAO();
     $this->gamesDAO = new  GamesDAO();
     $this->systemsDAO = new  SystemsDAO();
+    $this->membersDAO = new  MembersDAO();
   }
 
 
   public function index() {
 
 
+    if (isset($_POST["name"])){
+      $member = $this->membersDAO->selectByName($_POST["name"]);
+      if (empty($member)){
+        $error = "Name not found database";
+        $this->set('errorname', $error);
+      }
+      else
+      {
+        if ($_POST["password"] !== $member["MemberWW"]){
+          $error = "Password is incorrect";
+          $this->set('errorpass', $error);
+        }
+        else
+        {
+        $_SESSION["member"] = [];
+        array_push($_SESSION["member"],$member["MemberID"],$member["MemberName"],$member["MemberWW"],$member["MemberImage"]);
+        }
+      }
 
-    $lans= $this->lanDAO->selectAll();
-    $locations = $this->locationDAO->selectAll();
-    $this->set('lans', $lans);
-    $this->set('locations', $locations);
-    $this->set('title', 'Overview');
+    }
+
+    if (isset($_GET["logout"])){
+      session_destroy();
+    }
+    if (!empty($_SESSION["member"])){
+      $landata = array(
+        'memberid' => $_SESSION["member"][0]
+      );
+      $lans= $this->lanDAO->selectAll($landata);
+      $locations = $this->locationDAO->selectAll();
+      $this->set('lans', $lans);
+      $this->set('locations', $locations);
+      $this->set('title', 'Overview');
+    }
 
     /*if (strtolower($_SERVER['HTTP_ACCEPT']) == 'application/json') {
       header('Content-Type: application/json');
@@ -164,7 +194,8 @@ class LanController extends Controller {
             'locationID' => $locationbase["LocationID"],
             'snacksid' => $SnacksID,
             'gamesid' => $GamesID,
-            'systemsid' => $SystemsID
+            'systemsid' => $SystemsID,
+            'membersid' => $_SESSION["member"][0]
           );
         }
       }
@@ -177,9 +208,6 @@ class LanController extends Controller {
   public function detail(){
 
     if (isset($_GET["delete"])){
-      echo '<script language="javascript">';
-      echo 'alert("message successfully sent")';
-      echo '</script>';
       $delete = $this->lanDAO->delete($_GET["id"]);
       header('Location: index.php');
       exit;
@@ -358,5 +386,39 @@ public function add() {
 
 
 }
+public function register() {
+if (isset($_POST["name"])){
+  $member = $this->membersDAO->selectByName($_POST["name"]);
+  if (!empty($member)){
+    $error = "Name is already in use";
+    $this->set('errorname', $error);
+  }
+  $fileinfo = @getimagesize($_FILES["image"]["tmp_name"]);
+  $width = $fileinfo[0];
+  $height = $fileinfo[1];
+  $imgData = base64_encode(file_get_contents(addslashes($_FILES["image"]["tmp_name"])));
+  if ($height > 120 || $width > 120 ){
+    $error = "please make sure the image is 120X120";
+    $this->set('errorimg', $error);
+  }
+  if ($_POST["password"] !== $_POST["passwordrepeat"]){
+    $error = "Password doesn't match";
+    $this->set('errorpass', $error);
+  }
+  else
+  {
+    $memberdata = array(
+      'membername' => $_POST["name"],
+      'memberww' => $_POST["password"],
+      'memberimage' => $imgData
+    );
+    $memberadded = $this->membersDAO->insertMember($memberdata);
+    header('Location: index.php');
+    exit;
+}
 
+
+}
+
+}
 }

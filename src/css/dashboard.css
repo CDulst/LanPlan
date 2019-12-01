@@ -9,6 +9,10 @@
 
 }
 
+.login__wrapper {
+  display: flex;
+}
+
 .dashboard__item__link {
   display: flex;
   flex-direction: row;

@@ -5,9 +5,10 @@ class LanDAO extends DAO {
 
 
 
-  public function selectAll(){
-    $sql = "SELECT * FROM `LanParties`";
+  public function selectAll($member){
+    $sql = "SELECT * FROM `LanParties` WHERE `MemberID` = :member ORDER BY `date` DESC";
     $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':member', $member["memberid"]);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
@@ -52,7 +53,7 @@ class LanDAO extends DAO {
   public function insertLan($data) {
     $errors = $this->validate( $data );
     if (empty($errors)) {
-      $sql = "INSERT INTO `LanParties` (`Name`, `LocationID`, `Date`, `SnacksID`, `GamesID`, `SystemsID`) VALUES (:naam, :locationid, :datum, :snacksid, :gamesid, :systemsid)";
+      $sql = "INSERT INTO `LanParties` (`Name`, `LocationID`, `Date`, `SnacksID`, `GamesID`, `SystemsID`, `MemberID`) VALUES (:naam, :locationid, :datum, :snacksid, :gamesid, :systemsid, :memberid)";
       $stmt = $this->pdo->prepare($sql);
       $stmt->bindValue(':naam', $data['name']);
       $stmt->bindValue(':locationid', $data['locationID']);
@@ -60,6 +61,7 @@ class LanDAO extends DAO {
       $stmt->bindValue(':snacksid', $data['snacksid']);
       $stmt->bindValue(':gamesid', $data['gamesid']);
       $stmt->bindValue(':systemsid', $data['systemsid']);
+      $stmt->bindValue(':memberid', $data['membersid']);
       if ($stmt->execute()) {
         return $this->selectById($this->pdo->lastInsertId());
       }

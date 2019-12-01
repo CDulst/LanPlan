@@ -22,6 +22,11 @@ $routes = array(
   'add' => array(
     'controller' => 'Lan',
     'action' => 'add'
+  ),
+
+  'register' => array(
+    'controller' => 'Lan',
+    'action' => 'register'
   )
 
 );

@@ -55,7 +55,10 @@ if (!empty($insertTodoResult)) {
 */
 ?>
 <section class="dashboard">
-        <h2 class="dashboard__title">Your Lan parties</h2>
+  <?php
+  if (isset($_SESSION["member"])){
+    ?>
+    <h2 class="dashboard__title">Your Lan parties</h2>
         <div class="dashboard__items__wrapper">
             <ul class="dashboard__items">
               <?php
@@ -132,6 +135,54 @@ if (!empty($insertTodoResult)) {
         <img class="add__lanparty__image" src="assets/images/button.svg" alt="button">
         </a>
     </div>
+    <?php
+  }
+  else
+  {
+    ?>
+    <section class="label">
+        <form class="form" action="" method = "POST" enctype="multipart/form-data">
+             <label class="labelForm" for="name"> Login </label>
+            <div class="FormName__wrapper">
+
+            <label class="labelForm" for="name"> Username </label>
+            <p id = "name" class="error">
+            <?php
+            if (isset($errorname)){
+            echo $errorname;
+            }
+            ?>
+            </p>
+            <input required id = "name" class=" input input__name" type="text" name = "name" placeholder="Jan Knol" value="<?php if (isset($_POST["name"])){
+              echo $_POST["name"];}?>">
+            </div>
+
+            <div class="FormName__wrapper">
+            <label class="labelForm" for="name">  Password </label>
+            <p id = "ww" class="error">
+              <?php
+            if (isset($errorpass)){
+            echo $errorpass;
+            }
+            ?>
+            </p>
+            <input required id = "ww" class=" input input__name" type="password" name = "password" placeholder="WW" value ="<?php if (isset($_POST["password"])){
+              echo $_POST["password"];}?>" >
+            </div>
+    <section class = "login__wrapper">
+    <form  class="form" action="index.php" method = "POST">
+    <input class="input__button" name = "Login" type="submit" value="Login">
+    </form>
+    <form  class="form" action="index.php?page=register" method = "POST">
+    <input class="input__button" name = "Register" type="submit" value="Register">
+    </form>
+            </section>
+
+            </section>
+
+    <?php
+  }
+  ?>
     </section>
       <section class="section__right">
         <img class="section__right__image" src="assets/images/illustration__right.svg" alt="">
