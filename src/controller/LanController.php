@@ -47,6 +47,10 @@ class LanController extends Controller {
 
   public function plan() {
 
+
+
+
+
     if (isset($_POST["name"]) && $_POST["name"] == " "){
       header('Location: index.php?page=plan&flow=name');
       exit;
@@ -61,6 +65,10 @@ class LanController extends Controller {
 
    if ($_GET["flow"] == "snacks"){
     $snacks = $this->snacksDAO->selectAll();
+    if (isset($_POST["filtersnack"])){
+    $snacks = $this->snacksDAO->selectByName($_POST["filtersnack"]);
+
+    }
     if ($_SERVER['HTTP_ACCEPT'] == 'application/json') {
       echo json_encode($snacks);
       exit();

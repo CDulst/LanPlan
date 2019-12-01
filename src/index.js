@@ -130,6 +130,32 @@ require('./js/validate.js');
     }
   };
 
+  const submitWithJS = async () => {
+    const $form = document.querySelector('.Agenda__form');
+    console.log($form);
+    const data = new FormData($form);
+    console.log(data);
+    const entries = [...data.entries()];
+    console.log(entries);
+    console.log('entries:', entries);
+    const qs = new URLSearchParams(entries).toString();
+    console.log(qs);
+    console.log('querystring', qs);
+    const url = `${$form.getAttribute('action')}&${qs}`;
+    console.log(url);
+    console.log('url', url);
+
+    const response = await fetch(url, {
+      headers: new Headers({
+        Accept: 'application/json'
+      })
+    });
+    const activiteiten = await response.json();
+    console.log(activiteiten);
+  };
+  const handlechange = e => {
+    submitWithJS();
+  };
 
   const checkflow = () => {
     const url = window.location.search.slice(1).split(`&`);
@@ -137,7 +163,8 @@ require('./js/validate.js');
     {
       const page = (url[1].split('=')[1]);
       if (page != null) {
-        console.log(page);
+        const $form = document.querySelector('.filteronName');
+        $form.addEventListener('change', handlechange);
 
       }
     }
