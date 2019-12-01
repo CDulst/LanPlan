@@ -1,0 +1,85 @@
+.label {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: flex-start;
+  margin-top: 6rem;
+  color: white;
+  font-weight: 700;
+  font-size: 1.6rem;
+  margin-bottom: 2rem;
+}
+
+.input {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 1rem;
+  border: none;
+  width: 20rem;
+  height: 2rem;
+  text-align: center;
+  background-image: linear-gradient(-90deg, #ebb6ec, #c56893);
+  color: #221fb1;
+
+  @media (--only-medium-screen) {
+    margin-bottom: 4rem;
+    margin-top: 1rem;
+    border-radius: 3rem;
+    border: none;
+    width: 25rem;
+    height: 3rem;
+    text-align: center;
+    background-image: linear-gradient(-90deg, #ebb6ec, #c56893);
+    color: #221fb1;
+    font-size: 1.5rem;
+  }
+}
+
+.input:focus {
+  filter: brightness(1.3);
+}
+
+input::placeholder {
+  text-align: center;
+  color: #221fb1;
+  font-size: 1.3rem;
+  font-weight: 100;
+  opacity: .6;
+}
+
+.smallerlabel {
+  font-size: 1rem;
+  margin-bottom: .5rem;
+  border: none;
+}
+
+.input__check {
+  margin: 1rem auto;
+  display: none;
+}
+
+input[type=checkbox]:checked + .labelcheckbox {
+  display: inline-block;
+  border: white 1px solid;
+}
+
+@media (--only-large-screen) {
+
+  .label {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-top: 10rem;
+    color: white;
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 10rem;
+    width: 50%;
+
+  }
+
+  .labelForm {
+    margin-bottom: 2rem;
+  }
+}

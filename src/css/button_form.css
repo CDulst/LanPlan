@@ -7,12 +7,11 @@
   margin-top: 1rem;
   color: #221fb1;
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   cursor: pointer;
   transition: all 200ms ease-in-out;
 }
 
 .input__button:hover {
   filter: brightness(1.3);
-
 }

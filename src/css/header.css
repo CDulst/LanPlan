@@ -3,6 +3,15 @@
   top: -2.5rem;
   left: -2rem;
   z-index: -1;
+
+  @media (--only-large-screen) {
+    width: 100%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+
+  }
 }
 
 .header__image__container2 {
@@ -13,6 +22,13 @@
   width: 100%;
   z-index: -1;
 
+  @media (--only-large-screen) {
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    overflow: hidden;
+    width: 100%;
+  }
 }
 
 .header__image2 {
@@ -20,6 +36,10 @@
   right: -6rem;
   top: 0;
   display: none;
+
+  @media (--only-medium-screen) {
+    display: block;
+  }
 }
 
 .header__image__container3 {
@@ -45,6 +65,14 @@
   margin-left: 1.5rem;
   margin-top: 3.5rem;
   color: #f1c3fb;
+
+  @media (--only-large-screen) {
+    margin-left: 0;
+    margin-top: 2.5rem;
+    display: flex;
+    justify-content: center;
+
+  }
 }
 
 .logo__link {
