@@ -177,6 +177,9 @@ class LanController extends Controller {
   public function detail(){
 
     if (isset($_GET["delete"])){
+      echo '<script language="javascript">';
+      echo 'alert("message successfully sent")';
+      echo '</script>';
       $delete = $this->lanDAO->delete($_GET["id"]);
       header('Location: index.php');
       exit;

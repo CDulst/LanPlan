@@ -13,6 +13,7 @@ require('./js/validate.js');
     });
 
     console.log('test');
+    deletepopup();
     checkflow();
     setInterval(function() {
       timer();
