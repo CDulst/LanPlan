@@ -194,11 +194,6 @@
         <img class="section__right__image" src="assets/images/illustration__right.svg" alt="">
     </section>
     <section class="label">
-    <form class = "filteronName" method = "POST" action = "">
-          <label class = "filteronName" for="">filter on name</label>
-          <input type = "text" name = "filtersnack">
-          <input type = "submit">
-          </form>
         <form class="form" action=<?php if (isset($_GET["edit"])){
               echo "index.php?page=detail&id=".$_GET["id"]."&edit=".$_GET["edit"];
             }
