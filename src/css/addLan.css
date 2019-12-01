@@ -69,6 +69,11 @@
   justify-content: center;
   margin-top: var(--spacerBig);
   margin-bottom: 6rem;
+
+  @media (--only-small-screen) {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .return__button {

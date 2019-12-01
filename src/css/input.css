@@ -47,6 +47,15 @@ input::placeholder {
   opacity: .6;
 }
 
+.labelForm {
+  margin-bottom: var(--spacerBig);
+}
+
+.input__image {
+  margin-bottom: var(--spacerBig);
+
+}
+
 .smallerlabel {
   font-size: var(--fontRegular);
   margin-bottom: .5rem;
