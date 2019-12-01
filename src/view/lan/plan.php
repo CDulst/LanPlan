@@ -98,7 +98,7 @@
             ?>
 
             <p class="info feedback">The perfect date for a perfect party <img src="/assets/images/aprove.svg"alt=""></p>
-            <input class="input input__button" type="submit" value= <?php if (isset($_POST["edit"]) || isset($_POST["return"])){
+            <input class="input__button" type="submit" value= <?php if (isset($_POST["edit"]) || isset($_POST["return"])){
               echo "Change";
             }
             else{
@@ -251,7 +251,7 @@
             ?>
 
             <p class="info feedback">Delicious snacks <img src="/assets/images/aprove.svg"alt=""></p>
-            <input class="input input__button" type="submit" value= <?php if (isset($_POST["edit"]) || isset($_POST["return"])){
+            <input class="input__button" type="submit" value= <?php if (isset($_POST["edit"]) || isset($_POST["return"])){
               echo "Change";
             }
             else{
@@ -331,7 +331,7 @@
             ?>
 
             <p class="info feedback">nice games <img src="/assets/images/aprove.svg"alt=""></p>
-            <input class="input input__button" type="submit" value= <?php if (isset($_POST["edit"]) || isset($_POST["return"])){
+            <input class="input__button" type="submit" value= <?php if (isset($_POST["edit"]) || isset($_POST["return"])){
               echo "Change";
             }
             else{
@@ -412,7 +412,7 @@
             ?>
 
             <p class="info feedback">nice games <img src="/assets/images/aprove.svg"alt=""></p>
-            <input class="input input__button" type="submit" value= <?php if (isset($_POST["edit"]) || isset($_POST["return"])){
+            <input class="input__button" type="submit" value= <?php if (isset($_POST["edit"]) || isset($_POST["return"])){
               echo "Change";
             }
             else{
