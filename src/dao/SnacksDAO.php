@@ -20,6 +20,16 @@ class SnacksDAO extends DAO {
     return $stmt->fetch(PDO::FETCH_ASSOC);
   }
 
+  public function selectByName($name){
+    $sql = "SELECT * FROM `LanSnacks` WHERE `Snackname` LIKE :nam";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindValue(':nam', "%".$name."%");
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+  }
+
+
+
   public function selectSnacksById($id){
     $sql = "SELECT * FROM `Lanparty_LanSnacks` WHERE `SnacksID` = :id";
     $stmt = $this->pdo->prepare($sql);
