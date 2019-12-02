@@ -14,27 +14,30 @@
   }
 }
 
-@media (--only-medium-screen) {
+.logout_form {
+  display: flex;
+  justify-content: flex-end;
 
-  .logout {
-    position: absolute;
-    top: 2rem;
-    right: 8%;
-    background-color: transparent;
-    border: solid var(--colorSecondary) 3px;
-    border-radius: 4rem;
-    padding: 1rem;
-    font-size: var(--fontMedium);
-    color: var(--colorSecondary);
-    cursor: pointer;
-    font-weight: var(--fontWeightBold);
-    transition: 200ms ease-in-out;
-  }
+  margin-right: 10%;
+}
 
-  .logout:hover {
-    background: var(--colorSecondary);
-    color: var(--colorMain);
-  }
+.logout {
+  top: 2rem;
+
+  background-color: transparent;
+  border: solid var(--colorSecondary) 3px;
+  border-radius: 4rem;
+  padding: 1rem;
+  font-size: var(--fontMedium);
+  color: var(--colorSecondary);
+  cursor: pointer;
+  font-weight: var(--fontWeightBold);
+  transition: 200ms ease-in-out;
+}
+
+.logout:hover {
+  background: var(--colorSecondary);
+  color: var(--colorMain);
 }
 
 @media (--only-large-screen) {

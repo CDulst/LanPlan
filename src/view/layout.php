@@ -26,7 +26,7 @@
         <?php
         if (isset($_SESSION["member"])){
           ?>
-        <form action = "index.php">
+        <form class="logout_form" action = "index.php">
         <input class="logout" type = "submit" name = "logout" value = "logout">
         </form>
           <?php
