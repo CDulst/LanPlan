@@ -16,3 +16,7 @@
 .input__button:hover {
   filter: brightness(1.3);
 }
+
+.form {
+  margin-bottom: 4rem;
+}

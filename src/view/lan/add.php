@@ -63,7 +63,7 @@
             if ($_GET["flow"] == "systems"){
               echo "add system";
             }?>">
-          <a class = "input__button input__return" href = "index.php?page=plan&flow=<?php echo $_GET["flow"] ?>">return</a>
+          <a class = "labelForm input__return" href = "index.php?page=plan&flow=<?php echo $_GET["flow"] ?>">return</a>
         </form>
 
     </section>
