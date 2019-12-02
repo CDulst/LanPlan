@@ -123,7 +123,7 @@
   };
 
   const init = () => {
-    const $form = document.querySelector(`form`);
+    const $form = document.querySelector(`.form`);
     if ($form != null) {
       $form.noValidate = true;
       $form.addEventListener(`submit`, handleSubmitForm);

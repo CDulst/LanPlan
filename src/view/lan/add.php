@@ -13,6 +13,7 @@
             if ($_GET["flow"] == "systems"){
               echo "&flow=systems";
             }?>" method = "POST" enctype="multipart/form-data">
+              <p id = "name" class="error"></p>
              <label class="labelForm form__title" for="name"> <?php if ($_GET["flow"] == "snacks"){
                echo "add snack";
              }
@@ -62,6 +63,7 @@
             if ($_GET["flow"] == "systems"){
               echo "add system";
             }?>">
-            <input class= "input__button" type="submit" value="return">
+          <a class = "labelForm" href = "index.php?page=plan&flow=<?php echo $_GET["flow"] ?>">return</a>
         </form>
+
     </section>

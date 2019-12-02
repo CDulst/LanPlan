@@ -5,7 +5,7 @@
     </section>
     <section class="label">
         <form class="form" action="" method = "POST" enctype="multipart/form-data">
-             <label class="labelForm" for="name"> Register </label>
+             <label class="labelForm Logintext " for="name"> Register </label>
             <div class="FormName__wrapper">
 
             <label class="labelForm" for="name"> Insert Username </label>

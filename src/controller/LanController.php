@@ -313,7 +313,7 @@ class LanController extends Controller {
 }
 public function add() {
   if ($_GET["flow"] == "snacks"){
-    if (!empty($_POST["name"])){
+    if (isset($_FILES["image"]) && $_POST["name"] !== ""){
       $fileinfo = @getimagesize($_FILES["image"]["tmp_name"]);
       $width = $fileinfo[0];
       $height = $fileinfo[1];
@@ -337,7 +337,7 @@ public function add() {
 
   }
   if ($_GET["flow"] == "games"){
-    if (!empty($_POST["name"])){
+    if (isset($_FILES["image"]) && $_POST["name"] !== ""){
       $fileinfo = @getimagesize($_FILES["image"]["tmp_name"]);
       $width = $fileinfo[0];
       $height = $fileinfo[1];
@@ -361,7 +361,7 @@ public function add() {
 
   }
   if ($_GET["flow"] == "systems"){
-    if (!empty($_POST["name"])){
+    if (isset($_FILES["image"]) && $_POST["name"] !== ""){
       $fileinfo = @getimagesize($_FILES["image"]["tmp_name"]);
       $width = $fileinfo[0];
       $height = $fileinfo[1];

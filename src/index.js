@@ -13,8 +13,6 @@ require('./js/validate.js');
     });
 
     console.log('test');
-
-    checkflow();
     setInterval(function() {
       timer();
     }, 1000);
@@ -154,25 +152,7 @@ require('./js/validate.js');
     const dataresponse = await response.json();
     console.log(dataresponse);
   };
-  const handlechange = e => {
-    submitWithJS();
-  };
 
-
-  const checkflow = () => {
-    const url = window.location.search.slice(1).split(`&`);
-    if (url[1] != null)
-    {
-      const page = (url[1].split('=')[1]);
-      if (page != null) {
-        const $form = document.querySelector('.filteronName');
-        $form.addEventListener('change', handlechange);
-
-      }
-    }
-
-
-  };
   init();
 
 }

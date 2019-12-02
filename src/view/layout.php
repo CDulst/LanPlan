@@ -22,6 +22,7 @@
       ?>
 
     <header class="header">
+
         <a class="logo__link" href="index.php"><h1 class="header__title">Lan plan</h1></a>
         <?php
         if (isset($_SESSION["member"])){
