@@ -13,7 +13,7 @@
             if ($_GET["flow"] == "systems"){
               echo "&flow=systems";
             }?>" method = "POST" enctype="multipart/form-data">
-             <label class="labelForm" for="name"> <?php if ($_GET["flow"] == "snacks"){
+             <label class="labelForm form__title" for="name"> <?php if ($_GET["flow"] == "snacks"){
                echo "add snack";
              }
              if ($_GET["flow"] == "games"){
