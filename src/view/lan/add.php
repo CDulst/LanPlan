@@ -4,7 +4,7 @@
         <img class="section__right__image" src="assets/images/illustration__right.svg" alt="">
     </section>
     <section class="label">
-        <form class="form" action="index.php?page=add<?php if ($_GET["flow"] == "snacks"){
+        <form class="form button__return" action="index.php?page=add<?php if ($_GET["flow"] == "snacks"){
                echo "&flow=snacks";
              }
              if ($_GET["flow"] == "games"){
