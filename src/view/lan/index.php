@@ -176,7 +176,7 @@ if (!empty($insertTodoResult)) {
     <form  class="form" action="index.php?page=register" method = "POST">
     <input class="input__button" name = "Register" type="submit" value="Register">
     </form>
-            </section>
+    </section>
 
             </section>
 

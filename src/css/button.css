@@ -23,3 +23,15 @@
 .add__lanparty__image:hover {
   filter: brightness(1.2);
 }
+
+.login__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (--only-medium-screen) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+}
