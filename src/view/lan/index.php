@@ -142,7 +142,7 @@ if (!empty($insertTodoResult)) {
     ?>
     <section class="label">
         <form class="form" action="" method = "POST" enctype="multipart/form-data">
-             <label class="labelForm" for="name"> Login </label>
+             <label class="labelForm Logintext" for="name"> Login </label>
             <div class="FormName__wrapper">
 
             <label class="labelForm" for="name"> Username </label>
