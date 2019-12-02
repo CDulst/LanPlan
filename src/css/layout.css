@@ -9,6 +9,10 @@ html {
   height: 100%;
 }
 
+.welcome {
+color:white;
+}
+
 @media (--only-large-screen) {
 
   .body {
