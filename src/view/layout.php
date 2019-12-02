@@ -28,7 +28,7 @@
           ?>
         <p class = "welcome"> Welcome <?php echo $_SESSION["member"][1]?></p>
         <form action = "index.php">
-        <input type = "submit" name = "logout" value = "logout">
+        <input class="logout" type = "submit" name = "logout" value = "logout">
         </form>
           <?php
         }
