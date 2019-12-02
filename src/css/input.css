@@ -49,6 +49,12 @@ input::placeholder {
 
 .labelForm {
   margin-bottom: var(--spacerBig);
+  margin-top: var(--spacerBig);
+}
+
+.form__title {
+  font-size: 4rem;
+
 }
 
 .input__image {
