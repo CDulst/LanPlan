@@ -97,6 +97,10 @@
   letter-spacing: .2rem;
 }
 
+.Logintext {
+  font-size: 3rem;
+}
+
 .dashboard__location {
   font-size: 1rem;
 }
