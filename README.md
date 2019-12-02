@@ -2,6 +2,8 @@
 Lan-Party planner
 "LanPlan"
 
+https://enigmatic-mountain-60860.herokuapp.com/
+
 Met deze app kan je lanparties inplannen. Alle lanparties worden weergegeven op een dashboard en wanneer je een bepaalde lanparty selecteert worden de details weergegeven. Je kan een lanparty toevoegen en wijzigen maken.
 
 	De gebruiker kan een moment kiezen voor een lan party
