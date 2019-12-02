@@ -6,7 +6,7 @@ class LanDAO extends DAO {
 
 
   public function selectAll($member){
-    $sql = "SELECT * FROM `LanParties` WHERE `MemberID` = :member ORDER BY `date` DESC";
+    $sql = "SELECT * FROM `LanParties` WHERE `MemberID` = :member ORDER BY `date` ASC";
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindValue(':member', $member["memberid"]);
     $stmt->execute();
