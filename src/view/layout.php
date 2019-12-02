@@ -6,6 +6,7 @@
     <title>LanPlan</title>
     <?php /* NEW */ ?>
    <?php echo $css;?>
+  <link rel='icon' href='assets/images/favicon.ico' type='image/x-icon'/ >
   <link rel="stylesheet" href="https://use.typekit.net/ape8ojm.css">
   </head>
   <div class="body__wrapper">

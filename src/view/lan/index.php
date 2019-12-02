@@ -179,6 +179,7 @@ if (!empty($insertTodoResult)) {
     </section>
 
             </section>
+            <p style = "display:none" class="info feedback"></p>
 
     <?php
   }
